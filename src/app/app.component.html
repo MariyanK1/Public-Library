@@ -1,0 +1,35 @@
+<div class="container">
+  <app-header-module></app-header-module>
+  <div
+    class="users-container"
+    [ngStyle]="{
+      display: 'flex',
+      gap: '2em',
+      'justify-content': 'center',
+      'align-items': 'center',
+      'flex-wrap': 'wrap'
+    }"
+  >
+    <ng-container *ngFor="let user of users">
+      <app-user-card
+        (switchGender)="switchGender($event)"
+        (activateCard)="onActivate($event)"
+        [user]="user"
+        [hideMales]="hideMales"
+        *ngIf="hideMales && user.gender ? false : true"
+      ></app-user-card>
+    </ng-container>
+    <app-button
+      color="success"
+      text="{{ hideMales ? 'Show Males' : 'Hide Males' }}"
+      (click)="onClick()"
+    ></app-button>
+    <app-button
+      color="success"
+      text="{{
+        activateAllUsers ? 'Deactivate All Users' : 'Activate All Users'
+      }}"
+      (click)="activateUsers()"
+    ></app-button>
+  </div>
+</div>

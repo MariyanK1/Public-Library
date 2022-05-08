@@ -1,0 +1,13 @@
+<div [ngClass]="user.activated ? 'user active' : 'user disabled'">
+  <app-user-info [user]="user"></app-user-info>
+  <app-button
+    (click)="onClick(user)"
+    text="Switch Sex"
+    color="success"
+  ></app-button>
+  <app-button
+    (click)="onActivate(user)"
+    text="{{ user.activated ? 'Deactivate' : 'Activate' }}"
+    color="warning"
+  ></app-button>
+</div>
