@@ -9,6 +9,7 @@ import { COLORS } from 'src/enums';
 })
 export class ButtonComponent {
   public colors: { [key: string]: any } = COLORS;
-  @Input() text: string = '';
-  @Input() color: string = '';
+  @Input() text!: string;
+  @Input() color!: string;
+  @Input() type: string = 'button';
 }

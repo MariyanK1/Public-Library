@@ -14,18 +14,18 @@ import { User } from 'src/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserCardComponent {
-  @Input() user: User = {
-    name: '',
-    age: 0,
-    gender: true,
-    activated: false,
-  };
+  public showForm: boolean = false;
+  @Input() user!: User;
   @Input() hideMales: boolean = false;
   @Output() switchGender = new EventEmitter();
   @Output() activateCard = new EventEmitter();
 
   onClick(user: User): void {
     this.switchGender.emit(user);
+  }
+
+  toggleForm(): void {
+    this.showForm = !this.showForm;
   }
 
   onActivate(user: User): void {

@@ -1,9 +1,103 @@
-<h1>Public Library</h1>
-<input
-  type="text"
-  name="test"
-  [(ngModel)]="test"
-  id="test"
-  placeholder="Test your skills"
-/>
-<span>{{ test }}</span>
+<div class="header-container">
+  <h1>Public Library</h1>
+
+  <form
+    *ngIf="showForm"
+    [formGroup]="addUser"
+    (ngSubmit)="onSubmit()"
+    class="form-container"
+  >
+    <div class="addUserForm">
+      <div class="generalInfo">
+        <div class="nameInput">
+          <label for="name">Name:</label>
+          <input type="text" name="name" formControlName="name" id="name" />
+        </div>
+        <div class="ageInput">
+          <label for="age">Age:</label>
+          <input type="number" name="age" formControlName="age" id="age" />
+        </div>
+        <div class="sexInput">
+          <label for="sex">Sex:</label>
+          <input type="text" name="sex" formControlName="sex" id="sex" />
+        </div>
+      </div>
+
+      <div formGroupName="contacts">
+        <div class="phoneInput">
+          <label for="phone">Phone:</label>
+          <input type="tel" name="phone" formControlName="phone" id="phone" />
+        </div>
+        <div class="emailInput">
+          <label for="email">Email:</label>
+          <input type="email" name="email" formControlName="email" id="email" />
+        </div>
+      </div>
+
+      <div formGroupName="address">
+        <div class="countryInput">
+          <label for="country">Country:</label>
+          <input
+            type="text"
+            name="country"
+            formControlName="country"
+            id="country"
+          />
+        </div>
+        <div class="cityInput">
+          <label for="city">City:</label>
+          <input type="text" name="city" formControlName="city" id="city" />
+        </div>
+        <div class="streetInput">
+          <label for="street">Street:</label>
+          <input
+            type="text"
+            name="street"
+            formControlName="street"
+            id="street"
+          />
+        </div>
+        <div class="stateInput">
+          <label for="state">State:</label>
+          <input type="text" name="state" formControlName="state" id="state" />
+        </div>
+        <div class="zipCodeInput">
+          <label for="zipCode">Zip Code:</label>
+          <input
+            type="text"
+            name="zipCode"
+            formControlName="zipCode"
+            id="zipCode"
+          />
+        </div>
+      </div>
+
+      <div formGroupName="books">
+        <div class="bookNameInput">
+          <label for="bookName">Book Name:</label>
+          <input
+            type="text"
+            name="bookName"
+            formControlName="bookName"
+            id="bookName"
+          />
+        </div>
+        <div class="authorInput">
+          <label for="author">Author:</label>
+          <input
+            type="text"
+            name="author"
+            formControlName="author"
+            id="author"
+          />
+        </div>
+      </div>
+    </div>
+    <app-button type="submit" color="warning" text="Submit"></app-button>
+  </form>
+  <app-button
+    (click)="toggleForm()"
+    color="success"
+    text="{{ showForm ? 'Hide Form' : 'Show Form' }}"
+  ></app-button>
+</div>

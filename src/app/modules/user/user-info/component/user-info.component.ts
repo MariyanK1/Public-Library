@@ -8,10 +8,5 @@ import { User } from 'src/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserInfoComponent {
-  @Input() user: User = {
-    name: '',
-    age: 0,
-    gender: false,
-    activated: false,
-  };
+  @Input() user!: User;
 }

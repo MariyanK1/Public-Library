@@ -10,4 +10,9 @@
     text="{{ user.activated ? 'Deactivate' : 'Activate' }}"
     color="warning"
   ></app-button>
+  <app-button
+    text="{{ showForm ? 'Close' : 'Edit' }}"
+    color="error"
+    (click)="toggleForm()"
+  ></app-button>
 </div>

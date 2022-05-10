@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './component/header.component';
+import { ButtonModule } from '../../shared/button/button.module';
 
 @NgModule({
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ButtonModule],
 })
 export class HeaderModule {}

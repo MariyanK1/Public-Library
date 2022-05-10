@@ -19,17 +19,17 @@
         *ngIf="hideMales && user.gender ? false : true"
       ></app-user-card>
     </ng-container>
-    <app-button
-      color="success"
-      text="{{ hideMales ? 'Show Males' : 'Hide Males' }}"
-      (click)="onClick()"
-    ></app-button>
-    <app-button
-      color="success"
-      text="{{
-        activateAllUsers ? 'Deactivate All Users' : 'Activate All Users'
-      }}"
-      (click)="activateUsers()"
-    ></app-button>
   </div>
+  <app-button
+    color="success"
+    text="{{ hideMales ? 'Show Males' : 'Hide Males' }}"
+    (click)="onClick()"
+  ></app-button>
+  <app-button
+    color="success"
+    text="{{
+      activateAllUsers ? 'Deactivate All Users' : 'Activate All Users'
+    }}"
+    (click)="activateUsers()"
+  ></app-button>
 </div>
