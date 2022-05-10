@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { User } from 'src/interfaces';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-header-module',
@@ -7,11 +6,4 @@ import { User } from 'src/interfaces';
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
-  public showForm: boolean = true;
-  @Input() users!: User[];
-
-  toggleForm() {
-    this.showForm = !this.showForm;
-  }
-}
+export class HeaderComponent {}

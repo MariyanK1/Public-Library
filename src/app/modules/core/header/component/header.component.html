@@ -1,12 +1,3 @@
 <div class="header-container">
   <h1>Public Library</h1>
-
-  <div class="form-container" *ngIf="showForm">
-    <app-form [users]="users"></app-form>
-  </div>
-  <app-button
-    (click)="toggleForm()"
-    color="success"
-    text="{{ showForm ? 'Hide Form' : 'Show Form' }}"
-  ></app-button>
 </div>

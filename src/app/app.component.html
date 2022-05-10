@@ -1,5 +1,13 @@
-<div class="container" (click)="clg()">
-  <app-header-module [users]="users"></app-header-module>
+<div class="container">
+  <app-header-module></app-header-module>
+  <div class="form-container" *ngIf="showForm">
+    <app-form (addUserToArray)="addUser($event)"></app-form>
+  </div>
+  <app-button
+    (click)="toggleForm()"
+    color="success"
+    text="{{ showForm ? 'Hide Form' : 'Show Form' }}"
+  ></app-button>
   <div class="users-container">
     <ng-container *ngFor="let user of users">
       <app-user-card

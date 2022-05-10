@@ -10,10 +10,19 @@ import { UsersService } from './modules/user/services/users.service';
 })
 export class AppComponent implements OnInit {
   public hideMales: boolean = false;
+  public showForm: boolean = true;
   public activateAllUsers: boolean = false;
   public users: User[] = [];
 
   constructor(private usersService: UsersService) {}
+
+  toggleForm() {
+    this.showForm = !this.showForm;
+  }
+
+  addUser(user: User): void {
+    this.users = [...this.users, user];
+  }
 
   ngOnInit(): void {
     this.users = this.usersService.get();
@@ -35,8 +44,5 @@ export class AppComponent implements OnInit {
 
   onClick(): void {
     this.hideMales = !this.hideMales;
-  }
-  clg(): void {
-    console.log('app ', this.users);
   }
 }
