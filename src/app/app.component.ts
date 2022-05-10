@@ -36,4 +36,7 @@ export class AppComponent implements OnInit {
   onClick(): void {
     this.hideMales = !this.hideMales;
   }
+  clg(): void {
+    console.log('app ', this.users);
+  }
 }

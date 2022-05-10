@@ -15,4 +15,7 @@
     color="error"
     (click)="toggleForm()"
   ></app-button>
+  <div class="edit-form" *ngIf="showForm">
+    <app-form formType="edit-form"></app-form>
+  </div>
 </div>

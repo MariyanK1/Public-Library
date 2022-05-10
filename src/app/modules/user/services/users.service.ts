@@ -21,6 +21,10 @@ export class UsersService {
     }
   }
 
+  addUser(user: any, users: any) {
+    return [...users, user];
+  }
+
   onActivate(user: User, users: User[]): User[] {
     return users.map((singleUser) => {
       if (singleUser === user) {

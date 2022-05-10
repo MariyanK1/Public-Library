@@ -1,15 +1,6 @@
-<div class="container">
-  <app-header-module></app-header-module>
-  <div
-    class="users-container"
-    [ngStyle]="{
-      display: 'flex',
-      gap: '2em',
-      'justify-content': 'center',
-      'align-items': 'center',
-      'flex-wrap': 'wrap'
-    }"
-  >
+<div class="container" (click)="clg()">
+  <app-header-module [users]="users"></app-header-module>
+  <div class="users-container">
     <ng-container *ngFor="let user of users">
       <app-user-card
         (switchGender)="switchGender($event)"
