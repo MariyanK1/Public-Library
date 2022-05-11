@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
   }
 
   switchGender(user: User): void {
-    this.usersService.switchGender(user, this.users);
+    this.users = [...this.usersService.switchGender(user, this.users)];
   }
 
   onActivate(user: User): void {
@@ -39,7 +39,9 @@ export class AppComponent implements OnInit {
   activateUsers(): void {
     this.activateAllUsers = !this.activateAllUsers;
 
-    this.usersService.activateUsers(this.activateAllUsers, this.users);
+    this.users = [
+      ...this.usersService.activateUsers(this.activateAllUsers, this.users),
+    ];
   }
 
   onClick(): void {

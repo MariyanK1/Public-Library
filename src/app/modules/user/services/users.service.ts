@@ -11,18 +11,17 @@ export class UsersService {
     return USERS;
   }
 
-  switchGender(user: User, users: User[]): void {
-    for (let i = 0; i < users.length; i++) {
-      const element = users[i];
-
-      if (element === user) {
-        users[i] = { ...user, gender: !user.gender };
+  switchGender(user: User, users: User[]): User[] {
+    return users.map((e, i) => {
+      if (e === user) {
+        return (users[i] = {
+          ...user,
+          sex: user.sex === 'female' ? 'male' : 'female',
+        });
       }
-    }
-  }
 
-  addUser(user: any, users: any) {
-    return [...users, user];
+      return e;
+    });
   }
 
   onActivate(user: User, users: User[]): User[] {
@@ -35,15 +34,23 @@ export class UsersService {
     });
   }
 
-  activateUsers(activateAllUsers: boolean, users: User[]): void {
-    for (let i = 0; i < users.length; i++) {
-      const element = users[i];
-
+  activateUsers(activateAllUsers: boolean, users: User[]): User[] {
+    return users.map((e, i) => {
+      const user = users[i];
       if (activateAllUsers) {
-        users[i] = { ...element, activated: true };
+        return (users[i] = { ...user, activated: true });
       } else {
-        users[i] = { ...element, activated: false };
+        return (users[i] = { ...user, activated: false });
       }
-    }
+    });
+    // for (let i = 0; i < users.length; i++) {
+    //   const element = users[i];
+
+    //   if (activateAllUsers) {
+    //     users[i] = { ...element, activated: true };
+    //   } else {
+    //     users[i] = { ...element, activated: false };
+    //   }
+    // }
   }
 }

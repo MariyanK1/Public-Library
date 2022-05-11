@@ -1,7 +1,7 @@
 export interface User {
   name: string;
   age: number;
-  gender: boolean;
+  sex: string;
   activated: boolean;
   contacts: [
     {

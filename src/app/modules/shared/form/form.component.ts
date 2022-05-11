@@ -24,7 +24,7 @@ export class FormComponent {
   public addUser = this.fb.group({
     name: ['', Validators.required],
     age: ['', Validators.required],
-    sex: [''],
+    sex: ['male'],
     contacts: this.fb.group({
       phone: [''],
       email: ['', Validators.required],

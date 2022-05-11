@@ -4,7 +4,7 @@ export const USERS: User[] = [
   {
     name: 'Mariyan',
     age: 19,
-    gender: true,
+    sex: 'male',
     activated: false,
     contacts: [
       {
