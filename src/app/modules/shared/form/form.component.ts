@@ -18,6 +18,8 @@ export class FormComponent {
   public clickedUser!: User;
 
   @Input() formType: string = 'add-user';
+  @Input() userEdit!: User;
+
   @Output() addUserToArray = new EventEmitter();
   constructor(private fb: FormBuilder) {}
 
@@ -43,6 +45,15 @@ export class FormComponent {
   });
 
   onSubmit(user: User): void {
-    this.addUserToArray.emit(user);
+    if (this.formType === 'edit-form') {
+      console.log(this.formType);
+      // how to populate the form with values from user?
+      this.addUser.patchValue({
+        ...user,
+      });
+    } else {
+      this.addUser.reset();
+      this.addUserToArray.emit(user);
+    }
   }
 }

@@ -1,4 +1,10 @@
-<div [ngClass]="user.activated ? 'user active' : 'user disabled'">
+<!-- Line 4-5: classes don't work properly -->
+<div
+  [ngClass]="{
+    'user active': user.activated,
+    'user disabled': !user.activated
+  }"
+>
   <app-user-info [user]="user"></app-user-info>
   <app-button
     (click)="onClick(user)"
