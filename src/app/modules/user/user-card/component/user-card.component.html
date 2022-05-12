@@ -1,8 +1,8 @@
-<!-- Line 4-5: classes don't work properly -->
 <div
+  class="user"
   [ngClass]="{
-    'user active': user.activated,
-    'user disabled': !user.activated
+    active: user.activated,
+    disabled: !user.activated
   }"
 >
   <app-user-info [user]="user"></app-user-info>
@@ -22,6 +22,6 @@
     (click)="toggleForm()"
   ></app-button>
   <div class="edit-form" *ngIf="showForm">
-    <app-form formType="edit-form"></app-form>
+    <app-form formType="edit-form" [userEdit]="user"></app-form>
   </div>
 </div>
