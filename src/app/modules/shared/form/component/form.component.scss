@@ -1,4 +1,7 @@
 .form-container {
+  input {
+    outline: none;
+  }
   text-align: center;
   .addUserForm {
     margin: 1em;
@@ -7,6 +10,14 @@
     grid-gap: 1em;
     text-align: center;
     justify-content: center;
+
+    .err {
+      border: 3px solid red;
+    }
+
+    .err-msg {
+      color: red;
+    }
 
     .sexInput {
       display: flex;

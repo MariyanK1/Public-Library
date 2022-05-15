@@ -1,19 +1,42 @@
 <form
-  [formGroup]="addUser"
-  (ngSubmit)="onSubmit(addUser.value)"
+  [formGroup]="userForm"
+  (ngSubmit)="onSubmit(userForm.value)"
   class="form-container"
+  novalidate
 >
   <div class="addUserForm">
-    <div class="generalInfo">
+    <div class="generalInfo" formGroupName="general">
       <div class="nameInput">
         <label for="name">Name:</label>
-        <input type="text" name="name" formControlName="name" id="name" />
+        <!-- [ngClass]=" ? 'err' : 'name'" -->
+        <input
+          [ngClass]="{
+            err: userForm.controls['general'].get('name')?.errors
+          }"
+          type="text"
+          name="name"
+          formControlName="name"
+          id="name"
+        />
       </div>
       <div class="ageInput">
         <label for="age">Age:</label>
-        <input type="number" name="age" formControlName="age" id="age" />
+        <input
+          type="number"
+          [ngClass]="{
+            err: userForm.controls['general'].get('age')?.errors
+          }"
+          name="age"
+          formControlName="age"
+          id="age"
+        />
       </div>
-      <div class="sexInput">
+      <div
+        class="sexInput"
+        [ngClass]="{
+          err: userForm.controls['general'].get('sex')?.errors
+        }"
+      >
         <label for="male">Male:</label>
         <input
           type="radio"
@@ -40,7 +63,33 @@
       </div>
       <div class="emailInput">
         <label for="email">Email:</label>
-        <input type="email" name="email" formControlName="email" id="email" />
+        <input
+          [ngClass]="{
+            err: userForm.controls['contacts'].get('email')?.errors
+          }"
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email"
+        />
+        <p
+          *ngIf="
+            (userForm.controls['contacts'].get('email')?.errors)!['emptyInput']
+          "
+          class="err-msg"
+        >
+          No empty inputs!
+        </p>
+        <p
+          *ngIf="
+            (userForm.controls['contacts'].get('email')?.errors)![
+              'invalidEmail'
+            ]
+          "
+          class="err-msg"
+        >
+          Doesn't look like a valid email!
+        </p>
       </div>
     </div>
 

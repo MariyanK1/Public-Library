@@ -6,8 +6,14 @@ import {
   EventEmitter,
   OnInit,
 } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { User } from 'src/interfaces';
+import {
+  ADDRESS_INPUT,
+  BOOK_INPUT,
+  CONTACTS_INPUT,
+  GENERAL_INFO_INPUT,
+} from './config';
 
 @Component({
   selector: 'app-form',
@@ -24,33 +30,28 @@ export class FormComponent implements OnInit {
   @Output() addUserToArray = new EventEmitter();
   constructor(private fb: FormBuilder) {}
 
-  public addUser = this.fb.group({
-    name: ['', Validators.required],
-    age: ['', Validators.required],
-    sex: ['male'],
-    contacts: this.fb.group({
-      phone: [''],
-      email: ['', Validators.required],
-    }),
-    address: this.fb.group({
-      country: [''],
-      city: [''],
-      street: [''],
-      state: [''],
-      zipCode: [''],
-    }),
-    books: this.fb.group({
-      bookName: [''],
-      author: [''],
-    }),
+  public userForm = this.fb.group({
+    general: this.fb.group(GENERAL_INFO_INPUT),
+    contacts: this.fb.group(CONTACTS_INPUT),
+    address: this.fb.group(ADDRESS_INPUT),
+    books: this.fb.group(BOOK_INPUT),
   });
 
   ngOnInit(): void {
-    this.addUser.patchValue(this.userEdit);
+    if (this.userEdit) {
+      this.isEditable = true;
+      this.userForm.patchValue(this.userEdit);
+    }
+    console.log(this.userForm.controls['contacts'].get('email')?.errors);
+    this.userForm.controls['general'].statusChanges.subscribe((x) => {
+      if (x === 'VALID') {
+        this.userForm.controls['address'].enable();
+      }
+    });
   }
 
   onSubmit(user: User): void {
-    this.addUser.reset();
+    this.userForm.reset();
     this.addUserToArray.emit(user);
   }
 }
