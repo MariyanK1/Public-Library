@@ -74,21 +74,17 @@
         />
         <p
           *ngIf="
-            (userForm.controls['contacts'].get('email')?.errors)!['emptyInput']
-          "
-          class="err-msg"
-        >
-          No empty inputs!
-        </p>
-        <p
-          *ngIf="
-            (userForm.controls['contacts'].get('email')?.errors)![
-              'invalidEmail'
-            ]
+            userForm.controls['contacts'].get('email')?.errors?.invalidEmail
           "
           class="err-msg"
         >
           Doesn't look like a valid email!
+        </p>
+        <p
+          *ngIf="userForm.controls['contacts'].get('email')?.errors?.emptyInput"
+          class="err-msg"
+        >
+          No empty inputs!
         </p>
       </div>
     </div>
@@ -142,9 +138,11 @@
       </div>
     </div>
   </div>
-  <app-button
-    type="submit"
-    color="warning"
-    text="{{ isEditable ? 'Edit User' : 'Add User' }}"
-  ></app-button>
+  <ng-container *ngIf="userForm.valid">
+    <app-button
+      type="submit"
+      color="warning"
+      text="{{ isEditable ? 'Edit User' : 'Add User' }}"
+    ></app-button>
+  </ng-container>
 </form>
