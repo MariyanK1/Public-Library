@@ -1,24 +1,20 @@
 export interface User {
-  name: string;
-  age: number;
-  sex: string;
-  activated: boolean;
-  contacts: [
-    {
-      // Phone is string because JavaScript engines interpret leading zeroes as octal numbers.
-      // https://stackoverflow.com/a/67086713
-      phone: string;
-      email: string;
-      addresses: [
-        {
-          country: string;
-          city: string;
-          street: string;
-          state: string;
-          zipCode: number;
-        }
-      ];
-    }
-  ];
+  general: {
+    name: string;
+    age: number;
+    sex: string;
+  };
+  contacts: {
+    phone: string;
+    email: string;
+  };
+  address: {
+    country: string;
+    city: string;
+    street: string;
+    state: string;
+    zipCode: number;
+  };
   books: [{ bookName: string; author: string; id: number }];
+  activated: boolean;
 }

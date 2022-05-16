@@ -8,7 +8,6 @@
     <div class="generalInfo" formGroupName="general">
       <div class="nameInput">
         <label for="name">Name:</label>
-        <!-- [ngClass]=" ? 'err' : 'name'" -->
         <input
           [ngClass]="{
             err: userForm.controls['general'].get('name')?.errors
@@ -72,16 +71,20 @@
           id="email"
           formControlName="email"
         />
+        <!--
+          I access the values with ['key'] because of TS gives me the following warning => 
+          Property 'invalidEmail' comes from an index signature, so it must be accessed with ['invalidEmail'].
+        -->
         <p
           *ngIf="
-            userForm.controls['contacts'].get('email')?.errors?.invalidEmail
+            userForm.controls['contacts'].get('email')?.errors?.['invalidEmail']
           "
           class="err-msg"
         >
           Doesn't look like a valid email!
         </p>
         <p
-          *ngIf="userForm.controls['contacts'].get('email')?.errors?.emptyInput"
+          *ngIf="userForm.controls['contacts'].get('email')?.errors?.['emptyInput']"
           class="err-msg"
         >
           No empty inputs!

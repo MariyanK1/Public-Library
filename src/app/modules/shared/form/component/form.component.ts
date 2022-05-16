@@ -42,7 +42,6 @@ export class FormComponent implements OnInit {
       this.isEditable = true;
       this.userForm.patchValue(this.userEdit);
     }
-    console.log(this.userForm.controls['contacts'].get('email')?.errors);
     this.userForm.controls['general'].statusChanges.subscribe((x) => {
       if (x === 'VALID') {
         this.userForm.controls['address'].enable();
