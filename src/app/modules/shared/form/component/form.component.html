@@ -5,92 +5,8 @@
   novalidate
 >
   <div class="addUserForm">
-    <div class="generalInfo" formGroupName="general">
-      <div class="nameInput">
-        <label for="name">Name:</label>
-        <input
-          [ngClass]="{
-            err: userForm.controls['general'].get('name')?.errors
-          }"
-          type="text"
-          name="name"
-          formControlName="name"
-          id="name"
-        />
-      </div>
-      <div class="ageInput">
-        <label for="age">Age:</label>
-        <input
-          type="number"
-          [ngClass]="{
-            err: userForm.controls['general'].get('age')?.errors
-          }"
-          name="age"
-          formControlName="age"
-          id="age"
-        />
-      </div>
-      <div
-        class="sexInput"
-        [ngClass]="{
-          err: userForm.controls['general'].get('sex')?.errors
-        }"
-      >
-        <label for="male">Male:</label>
-        <input
-          type="radio"
-          name="sex"
-          formControlName="sex"
-          id="male"
-          value="male"
-        />
-        <label for="female">Female:</label>
-        <input
-          type="radio"
-          name="sex"
-          formControlName="sex"
-          id="female"
-          value="female"
-        />
-      </div>
-    </div>
-
-    <div formGroupName="contacts">
-      <div class="phoneInput">
-        <label for="phone">Phone:</label>
-        <input type="tel" name="phone" formControlName="phone" id="phone" />
-      </div>
-      <div class="emailInput">
-        <label for="email">Email:</label>
-        <input
-          [ngClass]="{
-            err: userForm.controls['contacts'].get('email')?.errors
-          }"
-          type="email"
-          name="email"
-          id="email"
-          formControlName="email"
-        />
-        <!--
-          I access the values with ['key'] because of TS gives me the following warning => 
-          Property 'invalidEmail' comes from an index signature, so it must be accessed with ['invalidEmail'].
-        -->
-        <p
-          *ngIf="
-            userForm.controls['contacts'].get('email')?.errors?.['invalidEmail']
-          "
-          class="err-msg"
-        >
-          Doesn't look like a valid email!
-        </p>
-        <p
-          *ngIf="userForm.controls['contacts'].get('email')?.errors?.['emptyInput']"
-          class="err-msg"
-        >
-          No empty inputs!
-        </p>
-      </div>
-    </div>
+    <app-general formGroupName="general"></app-general>
+    <app-contacts formGroupName="contacts"></app-contacts>
 
     <div formGroupName="address">
       <div class="countryInput">
@@ -125,21 +41,7 @@
       </div>
     </div>
 
-    <div formGroupName="books">
-      <div class="bookNameInput">
-        <label for="bookName">Book Name:</label>
-        <input
-          type="text"
-          name="bookName"
-          formControlName="bookName"
-          id="bookName"
-        />
-      </div>
-      <div class="authorInput">
-        <label for="author">Author:</label>
-        <input type="text" name="author" formControlName="author" id="author" />
-      </div>
-    </div>
+    <app-books formGroupName="books"></app-books>
   </div>
   <ng-container *ngIf="userForm.valid">
     <app-button

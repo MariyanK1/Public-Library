@@ -23,6 +23,11 @@ export class UserCardComponent {
   onClick(user: User): void {
     this.switchGender.emit(user);
   }
+  // ng onchange hook
+
+  isMale(): boolean {
+    return this.hideMales && this.user.general.sex === 'male' ? false : true;
+  }
 
   toggleForm(): void {
     this.showForm = !this.showForm;

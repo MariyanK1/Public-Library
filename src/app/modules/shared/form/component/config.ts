@@ -1,13 +1,13 @@
 import {
-  noEmptyInput,
   VALIDATORS_EMAIL,
   VALIDATORS_ONLY_LETTERS,
+  VALIDATOR_NO_EMPTY_INPUT,
 } from './validators';
 
 export const GENERAL_INFO_INPUT: object = {
   name: ['', VALIDATORS_ONLY_LETTERS],
-  age: ['', [noEmptyInput]],
-  sex: ['', [noEmptyInput]],
+  age: ['', VALIDATOR_NO_EMPTY_INPUT],
+  sex: ['', VALIDATOR_NO_EMPTY_INPUT],
 };
 
 export const CONTACTS_INPUT: object = {

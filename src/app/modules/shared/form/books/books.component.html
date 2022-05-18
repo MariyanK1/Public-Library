@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <div>
+    <div class="bookNameInput">
+      <label for="bookName">Book Name:</label>
+      <input
+        type="text"
+        name="bookName"
+        formControlName="bookName"
+        id="bookName"
+      />
+    </div>
+    <div class="authorInput">
+      <label for="author">Author:</label>
+      <input type="text" name="author" formControlName="author" id="author" />
+    </div>
+  </div>
+</form>

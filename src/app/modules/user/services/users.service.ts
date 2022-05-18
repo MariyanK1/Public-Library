@@ -12,13 +12,15 @@ export class UsersService {
   }
 
   switchGender(user: User, users: User[]): User[] {
+    const male = 'male';
+    const female = 'female';
     return users.map((e, i) => {
       if (e === user) {
         return (users[i] = {
           ...user,
           general: {
             ...user.general,
-            sex: user.general.sex === 'male' ? 'female' : 'male',
+            sex: user.general.sex === male ? female : male,
           },
         });
       }
@@ -46,14 +48,5 @@ export class UsersService {
         return (users[i] = { ...user, activated: false });
       }
     });
-    // for (let i = 0; i < users.length; i++) {
-    //   const element = users[i];
-
-    //   if (activateAllUsers) {
-    //     users[i] = { ...element, activated: true };
-    //   } else {
-    //     users[i] = { ...element, activated: false };
-    //   }
-    // }
   }
 }

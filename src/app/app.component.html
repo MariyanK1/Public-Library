@@ -15,7 +15,6 @@
         (activateCard)="onActivate($event)"
         [user]="user"
         [hideMales]="hideMales"
-        *ngIf="hideMales && user.general.sex === 'male' ? false : true"
       ></app-user-card>
     </ng-container>
   </div>

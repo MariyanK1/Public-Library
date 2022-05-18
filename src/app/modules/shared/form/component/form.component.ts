@@ -42,8 +42,8 @@ export class FormComponent implements OnInit {
       this.isEditable = true;
       this.userForm.patchValue(this.userEdit);
     }
-    this.userForm.controls['general'].statusChanges.subscribe((x) => {
-      if (x === 'VALID') {
+    this.userForm.controls['general'].statusChanges.subscribe((formGroup) => {
+      if (formGroup === 'VALID') {
         this.userForm.controls['address'].enable();
       }
     });
