@@ -4,7 +4,7 @@
       <label for="name">Name:</label>
       <input type="text" name="name" formControlName="name" id="name" />
     </div>
-    <p *ngIf="name?.errors?.['emptyInput']" class="err-msg">No empty inputs!</p>
+    <p *ngIf="name?.errors?.['required']" class="err-msg">No empty inputs!</p>
     <p *ngIf="name?.errors?.['notOnlyLetters']" class="err-msg">
       Name must contain only letters!
     </p>

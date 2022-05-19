@@ -7,7 +7,7 @@
     <div class="emailInput">
       <label for="email">Email:</label>
       <input type="email" name="email" id="email" formControlName="email" />
-      <p *ngIf="email?.errors?.['emptyInput']" class="err-msg">
+      <p *ngIf="email?.errors?.['required']" class="err-msg">
         No empty inputs!
       </p>
       <p *ngIf="email?.errors?.['invalidEmail']" class="err-msg">

@@ -1,19 +1,12 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, Validators } from '@angular/forms';
 
-export const VALIDATORS_ONLY_LETTERS = [noEmptyInput, onlyLetters];
-export const VALIDATORS_EMAIL = [noEmptyInput, emailValidator];
-export const VALIDATOR_NO_EMPTY_INPUT = [noEmptyInput];
+export const VALIDATORS_ONLY_LETTERS = [Validators.required, onlyLetters];
+export const VALIDATORS_EMAIL = [Validators.required, emailValidator];
+export const VALIDATOR_NO_EMPTY_INPUT = [Validators.required];
 
 function onlyLetters(control: AbstractControl) {
-  if (!control?.value?.match(/^[a-zA-Z]+$/) || control === null) {
+  if (!control?.value?.match(/^[a-zA-Z]+$/) || !control.value) {
     return { notOnlyLetters: true };
-  }
-  return null;
-}
-
-function noEmptyInput(control: AbstractControl) {
-  if (!control.value) {
-    return { emptyInput: true };
   }
   return null;
 }
