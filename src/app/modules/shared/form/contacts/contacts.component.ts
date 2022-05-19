@@ -16,7 +16,22 @@ export class ContactsComponent implements OnInit {
   }
 
   get email() {
-    console.log(this.form.parent?.controls);
+    /*
+
+    Here on returning TS gave me this error:
+
+    ***
+    Element implicitly has an 'any' type because expression of type '"contacts"' can't be used to index type
+    '{ [key: string]: AbstractControl; } | AbstractControl[]'. 
+      Property 'contacts' does not exist on type '{ [key: string]: AbstractControl; } | AbstractControl[]'.
+    ****
+
+      And in order to fix it I added the following rule to tsconfig.json:
+       "suppressImplicitAnyIndexErrors": true,
+
+    
+    */
+    console.log(this.form.parent?.controls?.['contacts']);
 
     return this.form.parent?.controls?.['contacts'].get('email');
   }

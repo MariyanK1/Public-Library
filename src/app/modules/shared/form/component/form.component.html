@@ -7,40 +7,7 @@
   <div class="addUserForm">
     <app-general formGroupName="general"></app-general>
     <app-contacts formGroupName="contacts"></app-contacts>
-
-    <div formGroupName="address">
-      <div class="countryInput">
-        <label for="country">Country:</label>
-        <input
-          type="text"
-          name="country"
-          formControlName="country"
-          id="country"
-        />
-      </div>
-      <div class="cityInput">
-        <label for="city">City:</label>
-        <input type="text" name="city" formControlName="city" id="city" />
-      </div>
-      <div class="streetInput">
-        <label for="street">Street:</label>
-        <input type="text" name="street" formControlName="street" id="street" />
-      </div>
-      <div class="stateInput">
-        <label for="state">State:</label>
-        <input type="text" name="state" formControlName="state" id="state" />
-      </div>
-      <div class="zipCodeInput">
-        <label for="zipCode">Zip Code:</label>
-        <input
-          type="text"
-          name="zipCode"
-          formControlName="zipCode"
-          id="zipCode"
-        />
-      </div>
-    </div>
-
+    <app-address formGroupName="address"></app-address>
     <app-books formGroupName="books"></app-books>
   </div>
   <ng-container *ngIf="userForm.valid">

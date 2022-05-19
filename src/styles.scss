@@ -7,3 +7,15 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+input {
+  outline: none;
+}
+
+input.ng-invalid {
+  border: 1px solid red;
+}
+
+.err-msg {
+  color: red;
+}
