@@ -16,11 +16,11 @@ export const CONTACTS_INPUT: object = {
 };
 
 export const ADDRESS_INPUT: object = {
-  country: [{ value: '', disabled: true }],
-  city: [{ value: '', disabled: true }],
-  street: [{ value: '', disabled: true }],
-  state: [{ value: '', disabled: true }],
-  zipCode: [{ value: '', disabled: true }],
+  country: [],
+  city: [],
+  street: [],
+  state: [],
+  zipCode: [],
 };
 
 export const BOOK_INPUT: object = {
