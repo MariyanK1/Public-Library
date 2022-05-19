@@ -31,8 +31,7 @@ export class ContactsComponent implements OnInit {
 
     
     */
-    console.log(this.form.parent?.controls?.['contacts']);
 
-    return this.form.parent?.controls?.['contacts'].get('email');
+    return this.form.controls['email'];
   }
 }

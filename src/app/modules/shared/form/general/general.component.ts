@@ -16,4 +16,12 @@ export class GeneralComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.rootFormGroup.control.get(this.formGroupName) as FormGroup;
   }
+
+  get sex() {
+    return this.form.controls['sex'];
+  }
+
+  get name() {
+    return this.form.controls['name'];
+  }
 }
