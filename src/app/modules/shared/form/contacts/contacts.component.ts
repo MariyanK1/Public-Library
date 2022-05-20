@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { CONTACTS_INPUT } from '../../../../../config';
 
 @Component({
   selector: 'app-contacts',
@@ -7,31 +8,16 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
   styleUrls: ['./contacts.component.scss'],
 })
 export class ContactsComponent implements OnInit {
-  @Input() formGroupName!: string;
-  form!: FormGroup;
-  constructor(private rootFormGroup: FormGroupDirective) {}
+  @Input() userForm!: FormGroup;
+  public contacts!: FormGroup;
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.form = this.rootFormGroup.control.get(this.formGroupName) as FormGroup;
+    this.contacts = this.fb.group(CONTACTS_INPUT);
+    this.userForm.registerControl('contacts', this.contacts);
   }
 
-  get email() {
-    /*
-
-    Here on returning TS gave me this error:
-
-    ***
-    Element implicitly has an 'any' type because expression of type '"contacts"' can't be used to index type
-    '{ [key: string]: AbstractControl; } | AbstractControl[]'. 
-      Property 'contacts' does not exist on type '{ [key: string]: AbstractControl; } | AbstractControl[]'.
-    ****
-
-      And in order to fix it I added the following rule to tsconfig.json:
-       "suppressImplicitAnyIndexErrors": true,
-
-    
-    */
-
-    return this.form.controls['email'];
+  get email(): AbstractControl | null {
+    return this.userForm.controls['contacts'].get('email');
   }
 }

@@ -18,9 +18,9 @@ export class UsersService {
       if (e === user) {
         return (users[i] = {
           ...user,
-          general: {
-            ...user.general,
-            sex: user.general.sex === male ? female : male,
+          generalInfo: {
+            ...user.generalInfo,
+            sex: user.generalInfo.sex === male ? female : male,
           },
         });
       }

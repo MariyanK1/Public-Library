@@ -9,7 +9,7 @@ export const USERS: User[] = [
       state: 'CA',
       zipCode: 23242,
     },
-    general: {
+    generalInfo: {
       name: 'Mariyan',
       age: 19,
       sex: 'male',

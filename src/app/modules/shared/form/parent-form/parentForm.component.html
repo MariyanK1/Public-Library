@@ -1,0 +1,20 @@
+<form
+  [formGroup]="userForm"
+  (ngSubmit)="onSubmit(userForm.value)"
+  class="form-container"
+  novalidate
+>
+  <div class="addUserForm">
+    <app-general-info [userForm]="userForm"></app-general-info>
+    <app-contacts [userForm]="userForm"></app-contacts>
+    <app-address [userForm]="userForm"></app-address>
+    <app-books [userForm]="userForm"></app-books>
+  </div>
+  <ng-container *ngIf="userForm.valid">
+    <app-button
+      type="submit"
+      color="warning"
+      text="{{ isEditable ? '***TO DO EditUser***' : 'Add User' }}"
+    ></app-button>
+  </ng-container>
+</form>

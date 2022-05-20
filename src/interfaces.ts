@@ -1,5 +1,5 @@
 export interface User {
-  general: {
+  generalInfo: {
     name: string;
     age: number;
     sex: string;

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { BOOK_INPUT } from '../../../../../config';
 
 @Component({
   selector: 'app-books',
@@ -7,11 +8,12 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
   styleUrls: ['./books.component.scss'],
 })
 export class BooksComponent implements OnInit {
-  @Input() formGroupName!: string;
-  form!: FormGroup;
-  constructor(private rootFormGroup: FormGroupDirective) {}
+  @Input() userForm!: FormGroup;
+  public books!: FormGroup;
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.form = this.rootFormGroup.control.get(this.formGroupName) as FormGroup;
+    this.books = this.fb.group(BOOK_INPUT);
+    this.userForm.registerControl('books', this.books);
   }
 }

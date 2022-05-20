@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ADDRESS_INPUT } from '../../../../../config';
 
 @Component({
   selector: 'app-address',
@@ -7,12 +8,23 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
   styleUrls: ['./address.component.scss'],
 })
 export class AddressComponent implements OnInit {
-  @Input() formGroupName!: string;
-  form!: FormGroup;
+  @Input() userForm!: FormGroup;
+  public address!: FormGroup;
 
-  constructor(private rootFormGroup: FormGroupDirective) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.form = this.rootFormGroup.control.get(this.formGroupName) as FormGroup;
+    this.address = this.fb.group(ADDRESS_INPUT);
+    this.userForm.registerControl('address', this.address);
+
+    this.userForm.controls['generalInfo'].status === 'INVALID'
+      ? this.userForm.controls['address']?.disable()
+      : this.userForm.controls['address']?.enable();
+
+    this.userForm.controls['generalInfo'].statusChanges.subscribe((status) => {
+      status === 'INVALID'
+        ? this.userForm.controls['address']?.disable()
+        : this.userForm.controls['address']?.enable();
+    });
   }
 }

@@ -26,7 +26,9 @@ export class UserCardComponent {
   // ng onchange hook
 
   isMale(): boolean {
-    return this.hideMales && this.user.general.sex === 'male' ? false : true;
+    return this.hideMales && this.user.generalInfo.sex === 'male'
+      ? false
+      : true;
   }
 
   toggleForm(): void {
