@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { COLORS } from 'src/enums';
 import { User } from 'src/interfaces';
 import { UsersService } from './modules/user/services/users.service';
 
@@ -9,6 +10,7 @@ import { UsersService } from './modules/user/services/users.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
+  public colors = COLORS;
   public hideMales: boolean = false;
   public showForm: boolean = true;
   public activateAllUsers: boolean = false;

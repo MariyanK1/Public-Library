@@ -15,11 +15,11 @@
     <app-button
       (click)="onActivate(user)"
       text="{{ user.activated ? 'Deactivate' : 'Activate' }}"
-      color="warning"
+      color="{{ colors.warning }}"
     ></app-button>
     <app-button
       text="{{ showForm ? 'Close' : 'Edit' }}"
-      color="error"
+      color="{{ colors.error }}"
       (click)="toggleForm()"
     ></app-button>
     <div class="edit-form" *ngIf="showForm">

@@ -5,7 +5,7 @@
   </div>
   <app-button
     (click)="toggleForm()"
-    color="success"
+    color="{{ colors.success }}"
     text="{{ showForm ? 'Hide Form' : 'Show Form' }}"
   ></app-button>
   <div class="users-container">
@@ -19,12 +19,12 @@
     </ng-container>
   </div>
   <app-button
-    color="success"
+    color="{{ colors.success }}"
     text="{{ hideMales ? 'Show Males' : 'Hide Males' }}"
     (click)="onClick()"
   ></app-button>
   <app-button
-    color="success"
+    color="{{ colors.success }}"
     text="{{
       activateAllUsers ? 'Deactivate All Users' : 'Activate All Users'
     }}"

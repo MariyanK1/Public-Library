@@ -5,6 +5,7 @@ import {
   EventEmitter,
   ChangeDetectionStrategy,
 } from '@angular/core';
+import { COLORS } from 'src/enums';
 import { User } from 'src/interfaces';
 
 @Component({
@@ -15,6 +16,7 @@ import { User } from 'src/interfaces';
 })
 export class UserCardComponent {
   public showForm: boolean = false;
+  public colors = COLORS;
   @Input() user!: User;
   @Input() hideMales: boolean = false;
   @Output() switchGender = new EventEmitter();
