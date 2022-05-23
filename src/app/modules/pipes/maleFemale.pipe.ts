@@ -6,12 +6,12 @@ import { FEMALE, MALE } from 'src/constants';
 })
 export class MaleFemalePipe implements PipeTransform {
   transform(value: unknown, ...args: unknown[]): string {
-    if (value === 'm') {
-      return MALE;
+    if (value === 'male') {
+      return MALE[0].toLocaleUpperCase();
     }
 
-    if (value === 'f') {
-      return FEMALE;
+    if (value === 'female') {
+      return FEMALE[0].toLocaleUpperCase();
     }
 
     return [MALE, FEMALE][Math.floor(Math.random() * 2)];
