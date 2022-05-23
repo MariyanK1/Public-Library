@@ -1,0 +1,17 @@
+<form
+  [formGroup]="authForm"
+  (ngSubmit)="onSubmit()"
+  class="authForm"
+  novalidate
+>
+  <app-label for="email" content="Email:">
+    <input type="email" name="email" id="email" />
+  </app-label>
+  <app-label for="password" content="Password:">
+    <input type="password" name="password" id="password" />
+  </app-label>
+  <app-label *ngIf="isLogin" for="repeatPassword" content="Repeat Password:">
+    <input type="password" name="repeatPassword" id="repeatPassword" />
+  </app-label>
+  <app-button type="submit" text="Submit!"></app-button>
+</form>
