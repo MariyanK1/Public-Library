@@ -6,12 +6,11 @@ import { FEMALE, MALE } from 'src/constants';
 })
 export class MaleFemalePipe implements PipeTransform {
   transform(value: unknown, ...args: unknown[]): string {
-    console.log(value);
-    if (value === 'Male') {
+    if (value === MALE) {
       return MALE;
     }
 
-    if (value === 'Female') {
+    if (value === FEMALE) {
       return FEMALE;
     }
 

@@ -12,7 +12,7 @@ export const USERS: User[] = [
     generalInfo: {
       name: 'Mariyan',
       age: 19,
-      sex: 'Male',
+      sex: 'male',
     },
     contacts: {
       phone: '0899',

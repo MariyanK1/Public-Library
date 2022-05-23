@@ -23,4 +23,4 @@ import { BookAuthorComponent } from '../books/book-author/book-author.component'
   imports: [CommonModule, ReactiveFormsModule, ButtonModule],
   exports: [ParentFormComponent],
 })
-export class FormModule {}
+export class ParentFormModule {}

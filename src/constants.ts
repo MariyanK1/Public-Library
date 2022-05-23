@@ -1,2 +1,2 @@
-export const MALE: string = 'Male';
-export const FEMALE: string = 'Female';
+export const MALE: string = 'male';
+export const FEMALE: string = 'female';
