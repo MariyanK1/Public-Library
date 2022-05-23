@@ -26,8 +26,8 @@
         type="radio"
         name="sex"
         formControlName="sex"
-        id="female"
-        value="female"
+        id="{{ 'f' | maleFemale }}"
+        value="{{ 'f' | maleFemale }}"
       />
     </div>
     <p *ngIf="sex?.errors" class="err-msg">Please select a gender!</p>

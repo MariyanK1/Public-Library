@@ -1,4 +1,4 @@
-<ng-container *ngIf="isMale()">
+<ng-container *ngIf="showCard">
   <div
     class="user"
     [ngClass]="{
@@ -10,7 +10,7 @@
     <app-button
       (click)="onClick(user)"
       text="Switch Sex"
-      color="success"
+      color="{{ colors.success }}"
     ></app-button>
     <app-button
       (click)="onActivate(user)"

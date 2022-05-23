@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FEMALE, MALE } from 'src/constants';
 
 import { User } from 'src/interfaces';
 import { USERS } from 'src/mock-data';
@@ -12,15 +13,13 @@ export class UsersService {
   }
 
   switchGender(user: User, users: User[]): User[] {
-    const male = 'male';
-    const female = 'female';
     return users.map((e, i) => {
       if (e === user) {
         return (users[i] = {
           ...user,
           generalInfo: {
             ...user.generalInfo,
-            sex: user.generalInfo.sex === male ? female : male,
+            sex: user.generalInfo.sex === MALE ? FEMALE : MALE,
           },
         });
       }

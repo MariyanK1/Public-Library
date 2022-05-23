@@ -7,6 +7,9 @@ import { BooksComponent } from './books/books.component';
 import { AddressComponent } from './address/address.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { GeneralInfoComponent } from './general-info/general-info.component';
+import { MaleFemalePipe } from '../../pipes/maleFemale.pipe';
+import { BookNameComponent } from './books/book-name/book-name.component';
+import { BookAuthorComponent } from './books/book-author/book-author.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { GeneralInfoComponent } from './general-info/general-info.component';
     AddressComponent,
     ContactsComponent,
     GeneralInfoComponent,
+    MaleFemalePipe,
+    BookNameComponent,
+    BookAuthorComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, ButtonModule],
   exports: [ParentFormComponent],

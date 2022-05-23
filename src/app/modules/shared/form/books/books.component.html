@@ -1,17 +1,19 @@
 <form [formGroup]="books">
   <div>
     <div class="bookNameInput">
-      <label for="bookName">Book Name:</label>
-      <input
-        type="text"
-        name="bookName"
-        formControlName="bookName"
-        id="bookName"
-      />
+      <app-book-name>
+        <input
+          type="text"
+          name="bookName"
+          formControlName="bookName"
+          id="bookName"
+        />
+      </app-book-name>
     </div>
     <div class="authorInput">
-      <label for="author">Author:</label>
-      <input type="text" name="author" formControlName="author" id="author" />
+      <app-book-author>
+        <input type="text" name="author" formControlName="author" id="author" />
+      </app-book-author>
     </div>
   </div>
 </form>

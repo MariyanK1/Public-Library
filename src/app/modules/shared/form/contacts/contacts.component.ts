@@ -17,7 +17,7 @@ export class ContactsComponent implements OnInit {
     this.userForm.registerControl('contacts', this.contacts);
   }
 
-  get email(): AbstractControl | null {
-    return this.userForm.controls['contacts'].get('email');
+  get email(): AbstractControl {
+    return this.contacts.controls['email'];
   }
 }

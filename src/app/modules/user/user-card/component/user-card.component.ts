@@ -4,7 +4,10 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
+import { MALE } from 'src/constants';
 import { COLORS } from 'src/enums';
 import { User } from 'src/interfaces';
 
@@ -14,9 +17,10 @@ import { User } from 'src/interfaces';
   styleUrls: ['./user-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserCardComponent {
+export class UserCardComponent implements OnChanges {
   public showForm: boolean = false;
   public colors = COLORS;
+  public showCard: boolean = false;
   @Input() user!: User;
   @Input() hideMales: boolean = false;
   @Output() switchGender = new EventEmitter();
@@ -25,12 +29,12 @@ export class UserCardComponent {
   onClick(user: User): void {
     this.switchGender.emit(user);
   }
-  // ng onchange hook
 
-  isMale(): boolean {
-    return this.hideMales && this.user.generalInfo.sex === 'male'
-      ? false
-      : true;
+  ngOnChanges(changes: SimpleChanges): void {
+    this.showCard =
+      changes['hideMales'].currentValue && this.user.generalInfo.sex === MALE
+        ? false
+        : true;
   }
 
   toggleForm(): void {

@@ -7,6 +7,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { COLORS } from 'src/enums';
 import { User } from 'src/interfaces';
 
 @Component({
@@ -17,6 +18,7 @@ import { User } from 'src/interfaces';
 })
 export class ParentFormComponent implements OnInit {
   public clickedUser!: User;
+  public colors = COLORS;
 
   @Input() isEditable: boolean = false;
   @Input() userEdit!: User;

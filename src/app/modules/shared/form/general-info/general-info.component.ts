@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { GENERAL_INFO_INPUT } from '../../../../../config';
 
 @Component({
@@ -19,11 +19,11 @@ export class GeneralInfoComponent implements OnInit {
     this.userForm.registerControl('generalInfo', this.generalInfo);
   }
 
-  get sex() {
+  get sex(): AbstractControl {
     return this.generalInfo.controls['sex'];
   }
 
-  get name() {
+  get name(): AbstractControl {
     return this.generalInfo.controls['name'];
   }
 }

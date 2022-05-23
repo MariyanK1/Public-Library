@@ -13,7 +13,7 @@
   <ng-container *ngIf="userForm.valid">
     <app-button
       type="submit"
-      color="warning"
+      color="{{ colors.warning }}"
       text="{{ isEditable ? '***TO DO EditUser***' : 'Add User' }}"
     ></app-button>
   </ng-container>
