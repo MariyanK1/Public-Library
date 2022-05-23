@@ -7,8 +7,6 @@ import { BooksComponent } from './books/books.component';
 import { AddressComponent } from './address/address.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { GeneralInfoComponent } from './general-info/general-info.component';
-import { BookNameComponent } from './books/book-name/book-name.component';
-import { BookAuthorComponent } from './books/book-author/book-author.component';
 import { LabelModule } from '../label/label.module';
 
 @NgModule({
@@ -18,8 +16,6 @@ import { LabelModule } from '../label/label.module';
     AddressComponent,
     ContactsComponent,
     GeneralInfoComponent,
-    BookNameComponent,
-    BookAuthorComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, ButtonModule, LabelModule],
   exports: [ParentFormComponent],
