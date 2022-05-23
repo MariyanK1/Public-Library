@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { COLORS } from 'src/enums';
-import { User } from 'src/interfaces';
+import { User, WhiteListUsers } from 'src/interfaces';
 import { UsersService } from './modules/user/services/users.service';
+import { WhiteListUsersService } from './modules/user/services/white.list.users.service';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,12 @@ export class AppComponent implements OnInit {
   public showForm: boolean = true;
   public activateAllUsers: boolean = false;
   public users: User[] = [];
+  public whiteListUsers: WhiteListUsers[] = [];
 
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private whiteUsersService: WhiteListUsersService
+  ) {}
 
   toggleForm() {
     this.showForm = !this.showForm;
@@ -27,6 +32,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.whiteListUsers = this.whiteUsersService.get();
     this.users = this.usersService.get();
   }
 

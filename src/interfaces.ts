@@ -18,3 +18,8 @@ export interface User {
   books: [{ bookName: string; author: string; id: number }];
   activated: boolean;
 }
+
+export interface WhiteListUsers {
+  email: string;
+  password: string;
+}
