@@ -3,7 +3,6 @@ import { AbstractControl, Validators } from '@angular/forms';
 export const VALIDATORS_ONLY_LETTERS = [Validators.required, onlyLetters];
 export const VALIDATORS_EMAIL = [Validators.required, emailValidator];
 export const VALIDATOR_NO_EMPTY_INPUT = [Validators.required];
-export const VALIDATORS_PASSWORD = [Validators.required];
 
 function onlyLetters(control: AbstractControl) {
   if (!control?.value?.match(/^[a-zA-Z]+$/) || !control.value) {
