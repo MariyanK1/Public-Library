@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserCardComponent } from './component/user-card.component';
 import { UserInfoModule } from '../user-info/user-info.module';
 import { ButtonModule } from '../../shared/button/button.module';
-import { FormModule } from '../../shared/form/parentForm.module';
+import { FormModule } from '../../shared/form/parent-form/parentForm.module';
 
 @NgModule({
   declarations: [UserCardComponent],
