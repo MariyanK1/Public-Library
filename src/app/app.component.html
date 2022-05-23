@@ -1,6 +1,7 @@
 <div class="container">
   <app-header-module></app-header-module>
-  <ng-container *ngIf="showForm">
+  <router-outlet></router-outlet>
+  <!-- <ng-container *ngIf="showForm">
     <app-form (addUserToArray)="addUser($event)"></app-form>
   </ng-container>
   <app-button
@@ -29,5 +30,5 @@
       activateAllUsers ? 'Deactivate All Users' : 'Activate All Users'
     }}"
     (click)="activateUsers()"
-  ></app-button>
+  ></app-button> -->
 </div>

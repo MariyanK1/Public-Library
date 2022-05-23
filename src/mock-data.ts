@@ -22,3 +22,8 @@ export const USERS: User[] = [
     activated: false,
   },
 ];
+
+export const WHITE_LIST_USERS = [
+  { email: 'test@abv.bg', password: '123456' },
+  { email: 'test1@abv.bg', password: '123456' },
+];
