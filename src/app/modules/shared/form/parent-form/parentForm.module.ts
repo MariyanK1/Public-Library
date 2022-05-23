@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ParentFormComponent } from './parentForm.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from '../../button/button.module';
 import { BooksComponent } from '../books/books.component';
@@ -12,7 +11,6 @@ import { BookAuthorComponent } from '../books/book-author/book-author.component'
 
 @NgModule({
   declarations: [
-    ParentFormComponent,
     BooksComponent,
     AddressComponent,
     ContactsComponent,
@@ -21,6 +19,5 @@ import { BookAuthorComponent } from '../books/book-author/book-author.component'
     BookAuthorComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, ButtonModule],
-  exports: [ParentFormComponent],
 })
 export class ParentFormModule {}
