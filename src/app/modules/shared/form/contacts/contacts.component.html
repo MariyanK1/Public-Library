@@ -1,12 +1,14 @@
 <form [formGroup]="contacts">
   <div>
     <div class="phoneInput">
-      <label for="phone">Phone:</label>
-      <input type="tel" name="phone" formControlName="phone" id="phone" />
+      <app-label for="phone" content="Phone:">
+        <input type="tel" name="phone" formControlName="phone" id="phone" />
+      </app-label>
     </div>
     <div class="emailInput">
-      <label for="email">Email:</label>
-      <input type="email" name="email" id="email" formControlName="email" />
+      <app-label for="email" content="Email:">
+        <input type="email" name="email" id="email" formControlName="email" />
+      </app-label>
       <p *ngIf="email?.errors?.['required']" class="err-msg">
         No empty inputs!
       </p>

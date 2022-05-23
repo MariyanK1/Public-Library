@@ -9,6 +9,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { GeneralInfoComponent } from './general-info/general-info.component';
 import { BookNameComponent } from './books/book-name/book-name.component';
 import { BookAuthorComponent } from './books/book-author/book-author.component';
+import { LabelModule } from '../label/label.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { BookAuthorComponent } from './books/book-author/book-author.component';
     BookNameComponent,
     BookAuthorComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, ButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, ButtonModule, LabelModule],
   exports: [ParentFormComponent],
 })
 export class FormModule {}
