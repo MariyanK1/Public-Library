@@ -1,8 +1,8 @@
 <div class="container">
   <app-header-module></app-header-module>
-  <div class="form-container" *ngIf="showForm">
+  <ng-container *ngIf="showForm">
     <app-form (addUserToArray)="addUser($event)"></app-form>
-  </div>
+  </ng-container>
   <app-button
     (click)="toggleForm()"
     color="{{ colors.success }}"

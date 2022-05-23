@@ -9,7 +9,6 @@ import { UserCardModule } from './modules/user/user-card/user-card.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, HeaderModule, UserCardModule, SharedModule],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
