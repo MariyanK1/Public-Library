@@ -25,13 +25,15 @@ export class AuthFormComponent implements OnInit {
   get password(): AbstractControl {
     return this.authForm.controls['password'];
   }
+
+  get repeatPassword(): AbstractControl {
+    return this.authForm.controls['repeatPassword'];
+  }
   ngOnInit(): void {
     if (this.type === 'register') {
       this.authForm.addControl(
         'repeatPassword',
-        this.fb.group({
-          repeatPassword: ['', VALIDATOR_NO_EMPTY_INPUT],
-        })
+        this.fb.control('', VALIDATOR_NO_EMPTY_INPUT)
       );
     }
   }

@@ -1,9 +1,8 @@
 .authForm {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   gap: 1em;
-  align-content: center;
-  align-items: flex-end;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }

@@ -8,7 +8,7 @@
     <input type="email" formControlName="email" name="email" id="email" />
     <p *ngIf="email?.errors?.['required']" class="err-msg">No empty inputs!</p>
     <p *ngIf="email?.errors?.['invalidEmail']" class="err-msg">
-      Doesn't look like a valid email!
+      Invalid email!
     </p>
   </app-label>
   <app-label for="password" content="Password:">
@@ -33,6 +33,9 @@
       name="repeatPassword"
       id="repeatPassword"
     />
+    <p *ngIf="repeatPassword?.errors?.['required']" class="err-msg">
+      No empty inputs!
+    </p>
   </app-label>
 
   <app-button
