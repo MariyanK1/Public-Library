@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { COLORS } from 'src/enums';
-import { User, WhiteListUsers } from 'src/interfaces';
+import { User, WhiteListUser } from 'src/interfaces';
 import { UsersService } from './modules/user/services/users.service';
 import { WhiteListUsersService } from './modules/user/services/white.list.users.service';
 
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   public showForm: boolean = true;
   public activateAllUsers: boolean = false;
   public users: User[] = [];
-  public whiteListUsers: WhiteListUsers[] = [];
+  public whiteListUsers: WhiteListUser[] = [];
 
   constructor(
     private usersService: UsersService,

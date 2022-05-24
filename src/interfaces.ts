@@ -19,7 +19,7 @@ export interface User {
   activated: boolean;
 }
 
-export interface WhiteListUsers {
+export interface WhiteListUser {
   email: string;
   password: string;
 }

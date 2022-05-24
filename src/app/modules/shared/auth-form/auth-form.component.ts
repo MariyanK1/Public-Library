@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder } from '@angular/forms';
 import { VALIDATORS_EMAIL, VALIDATOR_NO_EMPTY_INPUT } from 'src/validators';
-import { WhiteListUsers } from 'src/interfaces';
+import { WhiteListUser } from 'src/interfaces';
 
 @Component({
   selector: 'app-auth-form',
@@ -38,7 +38,7 @@ export class AuthFormComponent implements OnInit {
     }
   }
 
-  onSubmit(values: WhiteListUsers): void {
+  onSubmit(values: WhiteListUser): void {
     console.log(values);
   }
 }

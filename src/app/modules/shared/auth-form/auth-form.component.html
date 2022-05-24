@@ -4,14 +4,14 @@
   class="authForm"
   novalidate
 >
-  <app-label for="email" content="Email:">
+  <app-label class="input-cont" for="email" content="Email:">
     <input type="email" formControlName="email" name="email" id="email" />
     <p *ngIf="email?.errors?.['required']" class="err-msg">No empty inputs!</p>
     <p *ngIf="email?.errors?.['invalidEmail']" class="err-msg">
       Invalid email!
     </p>
   </app-label>
-  <app-label for="password" content="Password:">
+  <app-label class="input-cont" for="password" content="Password:">
     <input
       formControlName="password"
       type="password"
@@ -26,6 +26,7 @@
     *ngIf="type === 'register'"
     for="repeatPassword"
     content="Repeat Password:"
+    class="input-cont"
   >
     <input
       type="password"

@@ -5,4 +5,9 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+
+  .input-cont {
+    display: flex;
+    flex-direction: column;
+  }
 }
