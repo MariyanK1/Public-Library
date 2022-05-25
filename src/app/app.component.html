@@ -1,34 +1,4 @@
 <div class="container">
   <app-header-module></app-header-module>
   <router-outlet></router-outlet>
-  <!-- <ng-container *ngIf="showForm">
-    <app-form (addUserToArray)="addUser($event)"></app-form>
-  </ng-container>
-  <app-button
-    (click)="toggleForm()"
-    color="{{ colors.success }}"
-    text="{{ showForm ? 'Hide Form' : 'Show Form' }}"
-  ></app-button>
-  <div class="users-container">
-    <ng-container *ngFor="let user of users">
-      <app-user-card
-        (switchGender)="switchGender($event)"
-        (activateCard)="onActivate($event)"
-        [user]="user"
-        [hideMales]="hideMales"
-      ></app-user-card>
-    </ng-container>
-  </div>
-  <app-button
-    color="{{ colors.success }}"
-    text="{{ hideMales ? 'Show Males' : 'Hide Males' }}"
-    (click)="onClick()"
-  ></app-button>
-  <app-button
-    color="{{ colors.success }}"
-    text="{{
-      activateAllUsers ? 'Deactivate All Users' : 'Activate All Users'
-    }}"
-    (click)="activateUsers()"
-  ></app-button> -->
 </div>

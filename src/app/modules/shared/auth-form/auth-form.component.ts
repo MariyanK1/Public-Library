@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder } from '@angular/forms';
 import { VALIDATORS_EMAIL, VALIDATOR_NO_EMPTY_INPUT } from 'src/validators';
 import { WhiteListUser } from 'src/interfaces';
+import { WhiteListUsersService } from 'src/services/white.list.users.service';
+import { AuthService } from 'src/services/auth.service';
 
 @Component({
   selector: 'app-auth-form',
@@ -9,9 +11,15 @@ import { WhiteListUser } from 'src/interfaces';
   styleUrls: ['./auth-form.component.scss'],
 })
 export class AuthFormComponent implements OnInit {
+  private whiteListUsers: WhiteListUser[] = [];
+  public isLoggedIn: boolean = false;
   @Input() type: string = 'login';
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private usersService: WhiteListUsersService,
+    private auth: AuthService
+  ) {}
 
   public authForm = this.fb.group({
     email: ['', VALIDATORS_EMAIL],
@@ -30,6 +38,7 @@ export class AuthFormComponent implements OnInit {
     return this.authForm.controls['repeatPassword'];
   }
   ngOnInit(): void {
+    this.whiteListUsers = this.usersService.get();
     if (this.type === 'register') {
       this.authForm.addControl(
         'repeatPassword',
@@ -38,7 +47,7 @@ export class AuthFormComponent implements OnInit {
     }
   }
 
-  onSubmit(values: WhiteListUser): void {
-    console.log(values);
+  onSubmit(user: WhiteListUser): void {
+    this.isLoggedIn = this.auth.checkUser(this.usersService.check(user));
   }
 }

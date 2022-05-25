@@ -10,7 +10,9 @@ export class WhiteListUsersService {
     return WHITE_LIST_USERS;
   }
 
-  check(): boolean {
-    return true;
+  check(user: WhiteListUser): boolean {
+    return WHITE_LIST_USERS.some(
+      (x) => x.email === user.email && x.password === user.password
+    );
   }
 }
