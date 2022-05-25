@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
-import { CONTACTS_INPUT } from '../../../../../config';
+import { CONTACTS_INPUT } from 'src/config';
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss'],
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit, OnDestroy {
   @Input() userForm!: FormGroup;
   public contacts!: FormGroup;
   constructor(private fb: FormBuilder) {}
@@ -19,5 +19,9 @@ export class ContactsComponent implements OnInit {
 
   get email(): AbstractControl {
     return this.contacts.controls['email'];
+  }
+
+  ngOnDestroy(): void {
+    this.userForm.removeControl('contacts');
   }
 }

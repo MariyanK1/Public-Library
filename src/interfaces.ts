@@ -1,5 +1,5 @@
 export interface User {
-  generalInfo: {
+  userInfoForm: {
     name: string;
     age: number;
     sex: string;

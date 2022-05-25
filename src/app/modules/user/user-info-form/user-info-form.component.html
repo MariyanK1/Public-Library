@@ -1,0 +1,35 @@
+<form [formGroup]="userInfoForm">
+  <div class="generalInfo">
+    <div class="nameInput">
+      <app-form-field-wrapper for="name" content="Name:">
+        <input type="text" name="name" formControlName="name" id="name" />
+      </app-form-field-wrapper>
+    </div>
+    <div class="ageInput">
+      <app-form-field-wrapper for="age" content="Age:">
+        <input type="number" name="age" formControlName="age" id="age" />
+      </app-form-field-wrapper>
+    </div>
+    <div class="sexInput">
+      <app-form-field-wrapper for="male" content="Male:">
+        <input
+          type="radio"
+          name="sex"
+          formControlName="sex"
+          id="male"
+          value="male"
+        />
+      </app-form-field-wrapper>
+
+      <app-form-field-wrapper for="female" content="Female:">
+        <input
+          type="radio"
+          name="sex"
+          formControlName="sex"
+          id="female"
+          value="female"
+        />
+      </app-form-field-wrapper>
+    </div>
+  </div>
+</form>

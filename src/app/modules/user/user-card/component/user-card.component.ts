@@ -32,7 +32,7 @@ export class UserCardComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.showCard =
-      changes['hideMales'].currentValue && this.user.generalInfo.sex === MALE
+      changes['hideMales'].currentValue && this.user.userInfoForm.sex === MALE
         ? false
         : true;
   }

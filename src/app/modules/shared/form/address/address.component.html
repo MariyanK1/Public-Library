@@ -1,37 +1,37 @@
 <form [formGroup]="address">
   <div class="countryInput">
-    <app-label for="country" content="Country:">
+    <app-form-field-wrapper for="country" content="Country:">
       <input
         type="text"
         name="country"
         formControlName="country"
         id="country"
       />
-    </app-label>
+    </app-form-field-wrapper>
   </div>
   <div class="cityInput">
-    <app-label for="city" content="City:">
+    <app-form-field-wrapper for="city" content="City:">
       <input type="text" name="city" formControlName="city" id="city" />
-    </app-label>
+    </app-form-field-wrapper>
   </div>
   <div class="streetInput">
-    <app-label for="street" content="Street:">
+    <app-form-field-wrapper for="street" content="Street:">
       <input type="text" name="street" formControlName="street" id="street" />
-    </app-label>
+    </app-form-field-wrapper>
   </div>
   <div class="stateInput">
-    <app-label for="state" content="State:">
+    <app-form-field-wrapper for="state" content="State:">
       <input type="text" name="state" formControlName="state" id="state" />
-    </app-label>
+    </app-form-field-wrapper>
   </div>
   <div class="zipCodeInput">
-    <app-label for="zipCode" content="Zip Code:">
+    <app-form-field-wrapper for="zipCode" content="Zip Code:">
       <input
         type="text"
         name="zipCode"
         formControlName="zipCode"
         id="zipCode"
       />
-    </app-label>
+    </app-form-field-wrapper>
   </div>
 </form>

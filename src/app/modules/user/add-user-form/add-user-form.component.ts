@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter,
   OnInit,
+  OnDestroy,
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { COLORS } from 'src/enums';
@@ -12,11 +13,11 @@ import { User } from 'src/interfaces';
 
 @Component({
   selector: 'app-form',
-  templateUrl: './parentForm.component.html',
-  styleUrls: ['./parentForm.component.scss'],
+  templateUrl: './add-user-form.component.html',
+  styleUrls: ['./add-user-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ParentFormComponent implements OnInit {
+export class AddUserFormComponent implements OnInit, OnDestroy {
   public clickedUser!: User;
   public colors = COLORS;
 
@@ -33,6 +34,10 @@ export class ParentFormComponent implements OnInit {
       this.isEditable = true;
       this.userForm.patchValue(this.userEdit);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.userForm = this.fb.group({});
   }
 
   onSubmit(user: User): void {

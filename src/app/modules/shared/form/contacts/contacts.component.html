@@ -1,20 +1,14 @@
 <form [formGroup]="contacts">
   <div>
     <div class="phoneInput">
-      <app-label for="phone" content="Phone:">
+      <app-form-field-wrapper for="phone" content="Phone:">
         <input type="tel" name="phone" formControlName="phone" id="phone" />
-      </app-label>
+      </app-form-field-wrapper>
     </div>
     <div class="emailInput">
-      <app-label for="email" content="Email:">
+      <app-form-field-wrapper for="email" content="Email:">
         <input type="email" name="email" id="email" formControlName="email" />
-      </app-label>
-      <p *ngIf="email?.errors?.['required']" class="err-msg">
-        No empty inputs!
-      </p>
-      <p *ngIf="email?.errors?.['invalidEmail']" class="err-msg">
-        Doesn't look like a valid email!
-      </p>
+      </app-form-field-wrapper>
     </div>
   </div>
 </form>

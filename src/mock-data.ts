@@ -1,4 +1,4 @@
-import { User } from './interfaces';
+import { User, WhiteListUser } from './interfaces';
 
 export const USERS: User[] = [
   {
@@ -9,7 +9,7 @@ export const USERS: User[] = [
       state: 'CA',
       zipCode: 23242,
     },
-    generalInfo: {
+    userInfoForm: {
       name: 'Mariyan',
       age: 19,
       sex: 'male',
@@ -23,7 +23,7 @@ export const USERS: User[] = [
   },
 ];
 
-export const WHITE_LIST_USERS = [
+export const WHITE_LIST_USERS: WhiteListUser[] = [
   { email: 'test@abv.bg', password: '123456' },
-  { email: 'test1@abv.bg', password: '123456' },
+  { email: 'test1@abv.bg', password: '1234567' },
 ];
