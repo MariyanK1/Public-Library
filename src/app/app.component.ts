@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { COLORS } from 'src/enums';
 import { User, WhiteListUser } from 'src/interfaces';
-import { UsersService } from './modules/user/services/users.service';
-import { WhiteListUsersService } from './modules/user/services/white.list.users.service';
+import { UsersService } from 'src/services/users.service';
+import { WhiteListUsersService } from 'src/services/white.list.users.service';
 
 @Component({
   selector: 'app-root',
