@@ -1,18 +1,29 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { LoginComponent } from './modules/core/login/login.component';
-import { RegisterComponent } from './modules/core/register/register.component';
-import { UsersPageComponent } from './modules/user/users-page/users-page.component';
 import { AuthenticationGuard } from 'src/guards/authentication.guard';
 
-export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+const routes: Routes = [
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./modules/core/login/login.module').then((m) => m.LoginModule),
+  },
   {
     path: 'users',
-    component: UsersPageComponent,
+    loadChildren: () =>
+      import('./modules/user/users-page/users-page.module').then(
+        (m) => m.UsersPageModule
+      ),
     canActivate: [AuthenticationGuard],
   },
-  { path: 'register', component: RegisterComponent },
+  {
+    path: 'add-user',
+    loadChildren: () =>
+      import('./modules/user/add-users-page/add-users-page.module').then(
+        (m) => m.AddUsersPageModule
+      ),
+    canActivate: [AuthenticationGuard],
+  },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

@@ -4,6 +4,7 @@ import { VALIDATORS_EMAIL, VALIDATOR_NO_EMPTY_INPUT } from 'src/validators';
 import { WhiteListUser } from 'src/interfaces';
 import { WhiteListUsersService } from 'src/services/white.list.users.service';
 import { AuthService } from 'src/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-form',
@@ -18,7 +19,8 @@ export class AuthFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private usersService: WhiteListUsersService,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) {}
 
   public authForm = this.fb.group({
@@ -39,15 +41,12 @@ export class AuthFormComponent implements OnInit {
   }
   ngOnInit(): void {
     this.whiteListUsers = this.usersService.get();
-    if (this.type === 'register') {
-      this.authForm.addControl(
-        'repeatPassword',
-        this.fb.control('', VALIDATOR_NO_EMPTY_INPUT)
-      );
-    }
   }
 
   onSubmit(user: WhiteListUser): void {
     this.isLoggedIn = this.auth.checkUser(this.usersService.check(user));
+    if (this.isLoggedIn) {
+      this.router.navigate(['users']);
+    }
   }
 }

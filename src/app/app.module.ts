@@ -7,11 +7,10 @@ import { HeaderModule } from './modules/core/header/header.module';
 import { LoginModule } from './modules/core/login/login.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { UserCardModule } from './modules/user/user-card/user-card.module';
-import { RegisterComponent } from './modules/core/register/register.component';
 import { UsersPageModule } from './modules/user/users-page/users-page.module';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HeaderModule,

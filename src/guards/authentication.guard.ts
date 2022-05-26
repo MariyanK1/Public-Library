@@ -14,10 +14,6 @@ export class AuthenticationGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.auth.isLoggedIn().pipe(
-      map((isLoggedIn) => {
-        return isLoggedIn || this.router.createUrlTree(['']);
-      })
-    );
+    return this.auth.isLoggedIn();
   }
 }

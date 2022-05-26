@@ -2,18 +2,16 @@
   <div class="title">
     <h1>Public Library</h1>
   </div>
-  <nav class="navigation">
+  <nav class="navigation" *ngIf="isLoggedIn">
     <ul>
       <li>
-        <a routerLink="/login" routerLinkActive="router-link-active">Login</a>
-      </li>
-      <li>
-        <a routerLink="/register" routerLinkActive="router-link-active"
-          >Register</a
-        >
+        <a routerLink="/login" (click)="onSignOut()" routerLinkActive="router-link-active">Sign Out</a>
       </li>
       <li>
         <a routerLink="/users" routerLinkActive="router-link-active">Users</a>
+      </li>
+      <li>
+        <a routerLink="/add-user" routerLinkActive="router-link-active">Add User</a>
       </li>
     </ul>
   </nav>

@@ -12,19 +12,11 @@ import { UsersService } from 'src/services/users.service';
 export class UsersPageComponent implements OnInit {
   public colors = COLORS;
   public hideMales: boolean = false;
-  public showForm: boolean = true;
+
   public activateAllUsers: boolean = false;
   public users: User[] = [];
 
   constructor(private usersService: UsersService) {}
-
-  toggleForm() {
-    this.showForm = !this.showForm;
-  }
-
-  addUser(user: User): void {
-    this.users = [...this.users, user];
-  }
 
   ngOnInit(): void {
     this.users = this.usersService.get();
