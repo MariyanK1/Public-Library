@@ -1,18 +1,11 @@
-<div class="header-container">
+<mat-toolbar color="primary">
   <div class="title">
     <h1>Public Library</h1>
   </div>
+  <div class="spacer"></div>
   <nav class="navigation" *ngIf="isLoggedIn">
-    <ul>
-      <li>
-        <a routerLink="/login" (click)="onSignOut()" routerLinkActive="router-link-active">Sign Out</a>
-      </li>
-      <li>
-        <a routerLink="/users" routerLinkActive="router-link-active">Users</a>
-      </li>
-      <li>
-        <a routerLink="/add-user" routerLinkActive="router-link-active">Add User</a>
-      </li>
-    </ul>
+    <a mat-button routerLink="/login" (click)="onSignOut()" routerLinkActive="router-link-active">Sign Out</a>
+    <a mat-button routerLink="/users" routerLinkActive="router-link-active">Users</a>
+    <a mat-button routerLink="/add-user" routerLinkActive="router-link-active">Add User</a>
   </nav>
-</div>
+</mat-toolbar>
