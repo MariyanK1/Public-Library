@@ -1,27 +1,13 @@
 <ng-container *ngIf="showCard">
-  <div
-    class="user"
-    [ngClass]="{
+  <div class="user" [ngClass]="{
       active: user.activated,
       disabled: !user.activated
-    }"
-  >
+    }">
     <app-user-info [user]="user"></app-user-info>
-    <app-button
-      (click)="onClick(user)"
-      text="Switch Sex"
-      color="{{ colors.success }}"
-    ></app-button>
-    <app-button
-      (click)="onActivate(user)"
-      text="{{ user.activated ? 'Deactivate' : 'Activate' }}"
-      color="{{ colors.warning }}"
-    ></app-button>
-    <app-button
-      text="{{ showForm ? 'Close' : 'Edit' }}"
-      color="{{ colors.error }}"
-      (click)="toggleForm()"
-    ></app-button>
+    <app-button (click)="onClick(user)" text="Switch Sex" color="{{ colors.success }}"></app-button>
+    <app-button (click)="onActivate(user)" text="{{ user.activated ? 'Deactivate' : 'Activate' }}"
+      color="{{ colors.warning }}"></app-button>
+    <app-button text="{{ showForm ? 'Close' : 'Edit' }}" color="{{ colors.error }}" (click)="toggleForm()"></app-button>
     <div class="edit-form" *ngIf="showForm">
       <app-form formType="edit-form" [userEdit]="user"></app-form>
     </div>

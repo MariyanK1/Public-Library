@@ -31,8 +31,13 @@ export class AddUserFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.userEdit) {
+      console.log(this.userEdit);
       this.isEditable = true;
-      this.userForm.patchValue(this.userEdit);
+      this.userForm.patchValue({
+        userInfoForm: {
+          name: this.userEdit.userInfoForm.name,
+        },
+      });
     }
   }
 

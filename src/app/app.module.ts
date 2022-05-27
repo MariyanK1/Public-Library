@@ -8,6 +8,7 @@ import { LoginModule } from './modules/core/login/login.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { UserCardModule } from './modules/user/user-card/user-card.module';
 import { UsersPageModule } from './modules/user/users-page/users-page.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { UsersPageModule } from './modules/user/users-page/users-page.module';
     LoginModule,
     AppRoutingModule,
     UsersPageModule,
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent],
 })

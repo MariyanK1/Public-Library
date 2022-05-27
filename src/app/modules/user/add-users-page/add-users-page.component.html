@@ -1,8 +1,5 @@
 <ng-container *ngIf="showForm">
   <app-form (addUserToArray)="addUser($event)"></app-form>
 </ng-container>
-<app-button
-  (click)="toggleForm()"
-  color="{{ colors.success }}"
-  text="{{ showForm ? 'Hide Form' : 'Show Form' }}"
-></app-button>
+<app-button (click)="toggleForm()" color="{{ colors.success }}" text="{{ showForm ? 'Hide Form' : 'Show Form' }}">
+</app-button>
