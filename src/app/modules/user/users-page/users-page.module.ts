@@ -5,8 +5,12 @@ import { ButtonModule } from '../../shared/button/button.module';
 import { FormModule } from '../add-user-form/add-user-form.module';
 import { UserCardModule } from '../user-card/user-card.module';
 import { RouterModule, Routes } from '@angular/router';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
-const routes: Routes = [{ path: '', component: UsersPageComponent }];
+const routes: Routes = [
+  { path: '', component: UsersPageComponent },
+  { path: 'edit/:username', component: EditUserComponent },
+];
 
 @NgModule({
   declarations: [UsersPageComponent],

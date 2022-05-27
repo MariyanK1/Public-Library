@@ -18,7 +18,6 @@ import { User } from 'src/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserCardComponent implements OnChanges {
-  public showForm: boolean = false;
   public colors = COLORS;
   public showCard: boolean = false;
   @Input() user!: User;
@@ -35,10 +34,6 @@ export class UserCardComponent implements OnChanges {
       changes['hideMales'].currentValue && this.user.userInfoForm.sex === MALE
         ? false
         : true;
-  }
-
-  toggleForm(): void {
-    this.showForm = !this.showForm;
   }
 
   onActivate(user: User): void {

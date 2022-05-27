@@ -9,9 +9,10 @@ import { SharedModule } from './modules/shared/shared.module';
 import { UserCardModule } from './modules/user/user-card/user-card.module';
 import { UsersPageModule } from './modules/user/users-page/users-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditUserComponent } from './modules/user/edit-user/edit-user.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, EditUserComponent],
   imports: [
     BrowserModule,
     HeaderModule,

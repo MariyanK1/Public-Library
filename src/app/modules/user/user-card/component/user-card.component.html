@@ -7,9 +7,7 @@
     <app-button (click)="onClick(user)" text="Switch Sex" color="{{ colors.success }}"></app-button>
     <app-button (click)="onActivate(user)" text="{{ user.activated ? 'Deactivate' : 'Activate' }}"
       color="{{ colors.warning }}"></app-button>
-    <app-button text="{{ showForm ? 'Close' : 'Edit' }}" color="{{ colors.error }}" (click)="toggleForm()"></app-button>
-    <div class="edit-form" *ngIf="showForm">
-      <app-form formType="edit-form" [userEdit]="user"></app-form>
-    </div>
+    <a mat-raised-button color="primary" routerLink="edit/{{user.userInfoForm.name}}"
+      routerLinkActive="router-link-active">Edit</a>
   </div>
 </ng-container>
