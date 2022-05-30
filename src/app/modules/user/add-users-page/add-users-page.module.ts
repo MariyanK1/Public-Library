@@ -9,12 +9,7 @@ const routes: Routes = [{ path: '', component: AddUsersPageComponent }];
 
 @NgModule({
   declarations: [AddUsersPageComponent],
-  imports: [
-    CommonModule,
-    FormModule,
-    ButtonModule,
-    RouterModule.forChild(routes),
-  ],
+  imports: [CommonModule, FormModule, RouterModule.forChild(routes)],
   exports: [AddUsersPageComponent, RouterModule],
 })
 export class AddUsersPageModule {}

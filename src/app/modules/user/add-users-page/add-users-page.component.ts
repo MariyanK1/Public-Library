@@ -10,15 +10,10 @@ import { UsersService } from 'src/services/users.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddUsersPageComponent implements OnInit {
-  public showForm: boolean = true;
   public colors = COLORS;
   public users: User[] = [];
 
   constructor(private usersService: UsersService) {}
-
-  toggleForm() {
-    this.showForm = !this.showForm;
-  }
 
   ngOnInit(): void {
     this.users = this.usersService.get();
