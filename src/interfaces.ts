@@ -22,4 +22,5 @@ export interface User {
 export interface WhiteListUser {
   email: string;
   password: string;
+  permission?: string[];
 }

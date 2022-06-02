@@ -19,5 +19,6 @@ export class HeaderComponent {
   onSignOut() {
     this.router.navigateByUrl('/login');
     this.auth.signOut();
+    localStorage.clear();
   }
 }

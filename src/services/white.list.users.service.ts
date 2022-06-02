@@ -11,8 +11,13 @@ export class WhiteListUsersService {
   }
 
   check(user: WhiteListUser): boolean {
-    return WHITE_LIST_USERS.some(
-      (x) => x.email === user.email && x.password === user.password
-    );
+    return WHITE_LIST_USERS.some((x) => {
+      if (x.email === user.email && x.password === user.password) {
+        localStorage.setItem('permissions', JSON.stringify(x.permission));
+        return true;
+      }
+
+      return false;
+    });
   }
 }

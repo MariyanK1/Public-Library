@@ -7,7 +7,7 @@
     <app-button (click)="onClick(user)" text="Switch Sex" color="{{ colors.success }}"></app-button>
     <app-button (click)="onActivate(user)" text="{{ user.activated ? 'Deactivate' : 'Activate' }}"
       color="{{ colors.warning }}"></app-button>
-    <a mat-raised-button color="primary" routerLink="edit/{{user.userInfoForm.name}}"
-      routerLinkActive="router-link-active">Edit</a>
+    <a *appPermission="['edit-user']" mat-raised-button color="primary" appTooltip="Edit"
+      routerLink="edit/{{user.userInfoForm.name}}" routerLinkActive="router-link-active">Edit</a>
   </div>
 </ng-container>

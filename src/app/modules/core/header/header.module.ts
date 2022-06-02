@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { PermissionDirectiveModule } from '../../directives/permission-directive/permission-directive.module';
+import { TooltipModule } from '../../directives/tooltip/tooltip.module';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -15,6 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    PermissionDirectiveModule,
+    TooltipModule,
   ],
 })
 export class HeaderModule {}

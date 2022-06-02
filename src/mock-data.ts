@@ -24,6 +24,10 @@ export const USERS: User[] = [
 ];
 
 export const WHITE_LIST_USERS: WhiteListUser[] = [
-  { email: 'test@abv.bg', password: '123456' },
-  { email: 'test1@abv.bg', password: '1234567' },
+  {
+    email: 'test@abv.bg',
+    password: '123456',
+    permission: ['edit-user', 'add-user'],
+  },
+  { email: 'test1@abv.bg', password: '1234567', permission: ['edit-user'] },
 ];

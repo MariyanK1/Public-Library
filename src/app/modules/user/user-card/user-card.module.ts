@@ -7,6 +7,8 @@ import { FormModule } from '../add-user-form/add-user-form.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { PermissionDirectiveModule } from '../../directives/permission-directive/permission-directive.module';
+import { TooltipModule } from '../../directives/tooltip/tooltip.module';
 
 @NgModule({
   declarations: [UserCardComponent],
@@ -19,6 +21,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatIconModule,
     RouterModule,
+    PermissionDirectiveModule,
+    TooltipModule,
   ],
 })
 export class UserCardModule {}
