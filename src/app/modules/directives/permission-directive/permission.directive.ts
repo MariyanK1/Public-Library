@@ -21,10 +21,10 @@ export class PermissionDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    const y = localStorage.getItem('permissions') || '[]';
-    const x = JSON.parse(y);
+    const permissionsStr = localStorage.getItem('permissions') || '[]';
+    const permissionsArr = JSON.parse(permissionsStr);
 
-    if (x.includes(this.permissions[0])) {
+    if (permissionsArr.includes(this.permissions[0])) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     } else {
       this.viewContainer.clear();
