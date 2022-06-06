@@ -43,8 +43,10 @@ export class AuthFormComponent implements OnInit {
     this.whiteListUsers = this.usersService.get();
   }
 
-  onSubmit(user: WhiteListUser): void {
-    this.isLoggedIn = this.auth.checkUser(this.usersService.check(user));
+  onSubmit(): void {
+    this.isLoggedIn = this.auth.checkUser(
+      this.usersService.check(this.authForm.value)
+    );
     if (this.isLoggedIn) {
       this.router.navigate(['users']);
     }

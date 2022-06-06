@@ -1,9 +1,23 @@
-<form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)" class="authForm" novalidate>
+<form
+  [formGroup]="authForm"
+  (ngSubmit)="onSubmit()"
+  class="authForm"
+  novalidate
+>
   <app-form-field-wrapper class="input-cont" for="email" content="Email:">
     <input type="email" formControlName="email" name="email" id="email" />
   </app-form-field-wrapper>
   <app-form-field-wrapper class="input-cont" for="password" content="Password:">
-    <input formControlName="password" type="password" name="password" id="password" />
+    <input
+      formControlName="password"
+      type="password"
+      name="password"
+      id="password"
+    />
   </app-form-field-wrapper>
-  <app-button *ngIf="authForm.status === 'VALID'" type="submit" text="Submit!"></app-button>
+  <app-button
+    *ngIf="authForm.status === 'VALID'"
+    type="submit"
+    text="Submit!"
+  ></app-button>
 </form>
