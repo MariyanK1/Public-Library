@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddUsersPageComponent } from './add-users-page.component';
 import { FormModule } from '../add-user-form/add-user-form.module';
-import { ButtonModule } from '../../shared/button/button.module';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [{ path: '', component: AddUsersPageComponent }];

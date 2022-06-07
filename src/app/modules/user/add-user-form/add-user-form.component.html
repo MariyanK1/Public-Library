@@ -1,4 +1,4 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)" class="form-container" novalidate>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container" novalidate>
   <div class="addUserForm">
     <app-user-info-form [userForm]="userForm"></app-user-info-form>
     <app-contacts [userForm]="userForm"></app-contacts>
