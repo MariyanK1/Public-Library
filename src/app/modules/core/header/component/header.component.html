@@ -3,14 +3,13 @@
     <mat-icon>book</mat-icon>
   </span>
   <h1>Public Library</h1>
-
   <div class="spacer"></div>
+  <a mat-raised-button color="normal" routerLink="/rxjs" routerLinkActive="router-link-active">RxJS</a>
   <nav class="navigation" *ngIf="isLoggedIn">
     <a mat-raised-button color="accent" routerLink="/login" (click)="onSignOut()"
       routerLinkActive="router-link-active">Logout</a>
     <a mat-button routerLink="/users" routerLinkActive="router-link-active">Users</a>
     <a mat-button appTooltip="Add User" *appPermission="['add-user']" routerLink="/add-user"
-      routerLinkActive="router-link-active">Add
-      User</a>
+      routerLinkActive="router-link-active">Add User</a>
   </nav>
 </mat-toolbar>

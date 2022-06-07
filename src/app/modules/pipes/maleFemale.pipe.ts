@@ -6,11 +6,11 @@ import { FEMALE, MALE } from 'src/constants';
 })
 export class MaleFemalePipe implements PipeTransform {
   transform(value: unknown, ...args: unknown[]): string {
-    if (value === MALE) {
+    if (value === 'male') {
       return MALE[0].toLocaleUpperCase();
     }
 
-    if (value === FEMALE) {
+    if (value === 'female') {
       return FEMALE[0].toLocaleUpperCase();
     }
 
