@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { FEMALE, MALE } from 'src/constants';
 
 import { User } from 'src/interfaces';
@@ -8,8 +9,8 @@ import { USERS } from 'src/mock-data';
   providedIn: 'root',
 })
 export class UsersService {
-  get(): User[] {
-    return USERS;
+  get(): Observable<User[]> {
+    return of(USERS);
   }
 
   switchGender(user: User, users: User[]): User[] {

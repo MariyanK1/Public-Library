@@ -1,52 +1,61 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder } from '@angular/forms';
-import { VALIDATORS_EMAIL, VALIDATOR_NO_EMPTY_INPUT } from 'src/validators';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import {
+  VALIDATORS_EMAIL,
+  VALIDATORS_ONLY_LETTERS,
+  VALIDATOR_NO_EMPTY_INPUT,
+} from 'src/validators';
 import { WhiteListUser } from 'src/interfaces';
 import { WhiteListUsersService } from 'src/services/white.list.users.service';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-auth-form',
   templateUrl: './auth-form.component.html',
   styleUrls: ['./auth-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthFormComponent implements OnInit {
-  private whiteListUsers: WhiteListUser[] = [];
-  public isLoggedIn: boolean = false;
+  private isLoggedIn = new BehaviorSubject<boolean>(false);
   @Input() type: string = 'login';
 
   constructor(
     private fb: FormBuilder,
     private usersService: WhiteListUsersService,
-    private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {}
 
   public authForm = this.fb.group({
-    email: ['', VALIDATORS_EMAIL],
-    password: ['', VALIDATOR_NO_EMPTY_INPUT],
+    username: ['', Validators.required],
   });
 
-  get email(): AbstractControl {
-    return this.authForm.controls['email'];
-  }
-
-  get password(): AbstractControl {
-    return this.authForm.controls['password'];
-  }
-
-  get repeatPassword(): AbstractControl {
-    return this.authForm.controls['repeatPassword'];
-  }
   ngOnInit(): void {
-    this.whiteListUsers = this.usersService.get();
+    this.auth.isLoggedIn().subscribe((v) => this.isLoggedIn.next(v));
   }
 
-  onSubmit(user: WhiteListUser): void {
-    this.isLoggedIn = this.auth.checkUser(this.usersService.check(user));
-    if (this.isLoggedIn) {
-      this.router.navigate(['users']);
-    }
+  onSubmit(): void {
+    const subscriber = {
+      next: (v: any) => {
+        this.auth.setUser(true);
+        this.isLoggedIn.next(true);
+      },
+      error: (e: any) => this.auth.setUser(false),
+      complete: () => {
+        this.auth.setUser(true);
+        this.isLoggedIn.next(true);
+        this.router.navigate(['users']);
+      },
+    };
+    this.usersService
+      .checkUserExist(this.authForm.value.username)
+      .subscribe(subscriber);
   }
 }

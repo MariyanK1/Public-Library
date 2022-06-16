@@ -44,8 +44,8 @@ export class AddUserFormComponent implements OnInit, OnDestroy {
     this.userForm = this.fb.group({});
   }
 
-  onSubmit(user: User): void {
+  onSubmit(): void {
     this.userForm.reset();
-    this.addUserToArray.emit(user);
+    this.addUserToArray.emit(this.userForm.value);
   }
 }

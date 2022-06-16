@@ -10,6 +10,8 @@ import { SharedModule } from './modules/shared/shared.module';
 import { UserCardModule } from './modules/user/user-card/user-card.module';
 import { UsersPageModule } from './modules/user/users-page/users-page.module';
 import { EditUserComponent } from './modules/user/edit-user/edit-user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { WhiteListUsersService } from 'src/services/white.list.users.service';
 
 @NgModule({
   declarations: [AppComponent, EditUserComponent],
@@ -22,7 +24,9 @@ import { EditUserComponent } from './modules/user/edit-user/edit-user.component'
     AppRoutingModule,
     UsersPageModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
+  providers: [WhiteListUsersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

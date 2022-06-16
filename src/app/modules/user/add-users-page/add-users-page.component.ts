@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { COLORS } from 'src/enums';
 import { User } from 'src/interfaces';
 import { UsersService } from 'src/services/users.service';
@@ -11,16 +12,16 @@ import { UsersService } from 'src/services/users.service';
 })
 export class AddUsersPageComponent implements OnInit {
   public colors = COLORS;
-  public users: User[] = [];
+  public users$!: Observable<User[]>;
 
   constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {
-    this.users = this.usersService.get();
+    this.users$ = this.usersService.get();
   }
 
   addUser(user: User): void {
-    this.users = [...this.users, user];
-    console.log(this.users);
+    // this.users = [...this.users, user];
+    // console.log(this.users);
   }
 }
