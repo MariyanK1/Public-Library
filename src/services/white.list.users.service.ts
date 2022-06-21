@@ -12,7 +12,7 @@ export class WhiteListUsersService {
 
   checkUserExist(value: string): Observable<any> {
     const URL = `
-    https://api.github.com/users/${value}?client_id=f508c10ffe82594dfba6&client_secret=7cd69945aac77deceb9f7261c4acc243ddd0a704
+    https://api.github.com/users/${value}?client_id=87a71ee8153d8849757dclient_secret=29c62daf81f9e15768dcb956075105b868607def
     `;
     return this.http.get(URL);
   }

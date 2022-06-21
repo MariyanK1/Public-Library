@@ -22,8 +22,8 @@ export class UserCardComponent implements OnChanges {
   public showCard: boolean = false;
   @Input() user!: User;
   @Input() hideMales: boolean = false;
-  @Output() switchGender = new EventEmitter();
-  @Output() activateCard = new EventEmitter();
+  @Output() switchGender = new EventEmitter<User>();
+  @Output() activateCard = new EventEmitter<User>();
 
   onClick(user: User): void {
     this.switchGender.emit(user);

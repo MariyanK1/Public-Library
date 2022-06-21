@@ -4,7 +4,7 @@
       disabled: !user.activated
     }">
     <app-user-info [user]="user"></app-user-info>
-    <app-button (click)="onClick(user)" text="Switch Sex" color="{{ colors.success }}"></app-button>
+    <app-button class="switchSex" (click)="onClick(user)" text="Switch Sex" color="{{ colors.success }}"></app-button>
     <app-button (click)="onActivate(user)" text="{{ user.activated ? 'Deactivate' : 'Activate' }}"
       color="{{ colors.warning }}"></app-button>
     <a *appPermission="['edit-user']" mat-raised-button color="primary" appTooltip="Edit"

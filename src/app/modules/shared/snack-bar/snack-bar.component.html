@@ -1,8 +1,6 @@
-<div>
-    <div>{{data}}</div>
-    <div class="dismiss">
-        <button (click)="sbRef.dismiss()">
-            Dismiss
-        </button>
-    </div>
+<div class="snackbar">
+    <div class="message">{{snackBarMessage | async}}</div>
+    <button (click)="sbRef.dismiss()">
+        Ok
+    </button>
 </div>

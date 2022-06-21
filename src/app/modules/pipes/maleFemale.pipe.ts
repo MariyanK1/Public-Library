@@ -13,7 +13,6 @@ export class MaleFemalePipe implements PipeTransform {
     if (value === 'female') {
       return FEMALE[0].toLocaleUpperCase();
     }
-
-    return [MALE, FEMALE][Math.floor(Math.random() * 2)];
+    throw new Error('Please add a valid sex!');
   }
 }

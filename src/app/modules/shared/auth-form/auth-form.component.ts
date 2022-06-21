@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
+  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
@@ -14,7 +15,8 @@ import { WhiteListUser } from 'src/interfaces';
 import { WhiteListUsersService } from 'src/services/white.list.users.service';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { LogginInterceptor } from '../../core/http-interceptors/login.interceptor';
 
 @Component({
   selector: 'app-auth-form',
@@ -22,8 +24,9 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./auth-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthFormComponent implements OnInit {
+export class AuthFormComponent implements OnInit, OnDestroy {
   private isLoggedIn = new BehaviorSubject<boolean>(false);
+  private usersSubscription!: Subscription;
   @Input() type: string = 'login';
 
   constructor(
@@ -54,8 +57,14 @@ export class AuthFormComponent implements OnInit {
         this.router.navigate(['users']);
       },
     };
-    this.usersService
+    this.usersSubscription = this.usersService
       .checkUserExist(this.authForm.value.username)
       .subscribe(subscriber);
+  }
+
+  ngOnDestroy(): void {
+    if (this.usersSubscription) {
+      this.usersSubscription.unsubscribe();
+    }
   }
 }

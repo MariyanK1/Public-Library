@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, filter, map, Observable } from 'rxjs';
+import { BehaviorSubject, filter, map, Observable, Subscription } from 'rxjs';
 import { User } from 'src/interfaces';
 import { ActiveUsersService } from 'src/services/active-users.service';
 import { AuthService } from 'src/services/auth.service';
@@ -21,25 +21,35 @@ import { UsersService } from 'src/services/users.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   public counter: BehaviorSubject<number> = new BehaviorSubject(0);
   public isLoggedIn = new BehaviorSubject<boolean>(false);
+  private authSubscription!: Subscription;
+  private activeUsersSubscription!: Subscription;
 
   constructor(
     private auth: AuthService,
     private router: Router,
-    private usersService: UsersService,
     private activeUsers: ActiveUsersService
   ) {}
 
   ngOnInit(): void {
-    this.usersService.get().subscribe();
     this.isLoggedIn.subscribe();
-    this.auth.isLoggedIn().subscribe((v) => {
-      this.isLoggedIn.next(v);
+    this.authSubscription = this.auth.isLoggedIn().subscribe((value) => {
+      this.isLoggedIn.next(value);
     });
-    this.activeUsers.getActiveUsers().subscribe((v) => this.counter.next(v));
+    this.activeUsersSubscription = this.activeUsers
+      .getActiveUsers()
+      .subscribe((value) => this.counter.next(value));
   }
 
   ngOnDestroy(): void {
     this.isLoggedIn.unsubscribe();
+
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
+
+    if (this.activeUsersSubscription) {
+      this.activeUsersSubscription.unsubscribe();
+    }
   }
 
   onSignOut() {
