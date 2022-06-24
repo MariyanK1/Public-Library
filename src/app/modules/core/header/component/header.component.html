@@ -7,14 +7,13 @@
 
   <nav class="navigation">
     <ng-container *ngIf="isLoggedIn | async">
-      <a mat-raised-button color="accent" routerLink="/login" (click)="onSignOut()"
+      <a class="logout" mat-raised-button color="accent" routerLink="/login" (click)="onSignOut()"
         routerLinkActive="router-link-active">Logout</a>
       <a mat-button mat-raised-button color="normal">Active Users: {{counter | async}}</a>
-      <a mat-button mat-raised-button color="normal" routerLink="/rxjs" routerLinkActive="router-link-active">RxJS</a>
       <a mat-button routerLink="/users" routerLinkActive="router-link-active">Users</a>
       <a mat-button appTooltip="Add User" *appPermission="['add-user']" routerLink="/add-user"
         routerLinkActive="router-link-active">Add User</a>
     </ng-container>
-
+    <a mat-button mat-raised-button color="normal" routerLink="/rxjs" routerLinkActive="router-link-active">RxJS</a>
   </nav>
 </mat-toolbar>

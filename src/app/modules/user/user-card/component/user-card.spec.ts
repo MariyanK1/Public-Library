@@ -52,10 +52,6 @@ describe('UserCardComponent', () => {
     expect(component.user).toBeUndefined();
   });
 
-  it(`showCard to be boolean`, () => {
-    expect(component.showCard).toBeInstanceOf(Boolean);
-  });
-
   it(`showCard to be false`, () => {
     expect(component.showCard).toBeFalse();
   });
@@ -98,10 +94,9 @@ describe('UserCardComponent', () => {
     expect(component.onActivate).toBeInstanceOf(Function);
   });
 
-  // @desc Argument of type 'string' is not assignable to parameter of type 'never'.
-  // ----
-  // it('onActivate should emit User', () => {
-  //   spyOn(component.onActivate, 'emit');
-  // });
-  // ----
+  it('onActivate should emit User', () => {
+    spyOn(component.activateCard, 'emit');
+    component.onActivate(USERS[0]);
+    expect(component.activateCard.emit).toHaveBeenCalledWith(USERS[0]);
+  });
 });

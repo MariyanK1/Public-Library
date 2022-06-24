@@ -18,7 +18,7 @@ import { SnackBarService } from 'src/services/snack-bar-service.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SnackBarComponent implements OnInit {
-  public snackBarMessage!: Observable<string>;
+  public snackBarMessage: Observable<string> = new Observable();
 
   constructor(
     @Inject(MAT_SNACK_BAR_DATA) public data: any,

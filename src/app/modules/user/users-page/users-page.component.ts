@@ -25,7 +25,7 @@ export class UsersPageComponent implements OnInit, OnDestroy {
   public users$!: Observable<User[]>;
   public messageSubscription!: Subscription;
   public usersSubscription!: Subscription;
-  private activeUsersSubscription!: Subscription;
+  public activeUsersSubscription!: Subscription;
   public message: string = '';
 
   constructor(
