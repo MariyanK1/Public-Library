@@ -39,14 +39,5 @@ export class UsersService {
     });
   }
 
-  activateUsers(activateAllUsers: boolean, users: User[]): User[] {
-    return users.map((e, i) => {
-      const user = users[i];
-      if (activateAllUsers) {
-        return (users[i] = { ...user, activated: true });
-      } else {
-        return (users[i] = { ...user, activated: false });
-      }
-    });
-  }
+ 
 }
